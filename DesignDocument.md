@@ -1,4 +1,4 @@
- 
+﻿ 
   
 
 COVER PAGE
@@ -17,10 +17,9 @@ Joseph Donati - 2847
 
 #### Introduction
 
-Here is where you motivate some of your own ideas and describe your customer.
+Our software aims to provide a simple, intuitive task management utility for agile development teams. Our program, for now named TM, will allow teams and individuals to plan, track
 
 #### Product Reviews
-
 Here you discuss other product and how they achieve tasks that relate to your ideas.
 
 #### Project Overview
