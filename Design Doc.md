@@ -1,10 +1,10 @@
 ﻿# Team 2 Design Document
  ### Team Members:
-  Gurpreet Sanghera
-  Joseph Nehl
-  Emery Haddy
-  Anthony Castro
-  Joseph Donati
+Gurpreet Sanghera
+Joseph Nehl
+Emery Haddy
+Anthony Castro
+Joseph Donati
 
 ## Introduction:
    Our software aims to provide a simple, intuitive task management utility for agile software development teams. Our program, for now named TM, will allow teams and individuals to plan projects, organize tasks and workloads, and track both team and individual progress.
@@ -47,7 +47,7 @@ Building on the current design of the project, we want to add the ability to edi
    The TM approach to project and task management aims to be the most beneficial in a small-team, small-project agile environment. Instead of displaying projects as a timeline, TM will implement a Group Board to display multiple projects. The view of each unique project will display all current and future tasks in a feed-style display. The main view will display all projects in their own column, with simple task elements displayed like a stack. Tasks in this view will display minor amounts of data. By selecting and expanding an individual task, TM users will be able to see everything that is a part of the completion of that task. They will be able to see all relevant task deadlines, who is in charge of the task, all users involved in the task, user’s time and total time already spent on task, as well as time allotted for task. Space will also be provided for comments on each task, allowing notes to be added, questions to be asked, or checklists to be created within a task.
 
 ## Project Architecture:
-![Architecture](https://ibb.co/bJej2x)
+![Architecture](https://image.ibb.co/fmzj2x/Project_Architect_page_001.jpg)
 
 ## Requirements:
 1) Users must be able to create a new account
