@@ -94,18 +94,6 @@ Admin/User | To access a list of all users and display their status | Access Use
 Admin/User | To change description of already established task | Edit Description (UC7)
 Admin/User | To add status to task to show progress | Add status to task (UC8)
 Admin | To have admin assign tasks to users so that user can see task and its properties | Add users to task (UC9)
-Admin/User|To add or change the status of a task|Add status of task (UC10)
-Admin|To add user to a task|Add user to task(UC11)
-Admin/User|To add a task to a project|Add upcoming task (UC12)
-Admin/User|Delete an entered task|Delete task (UC13)
-Admin/User|Display all upcoming tasks that have not been deleted|Display Upcoming tasks (UC14)
-Admin|To create a new project and assign the users who will participate|Create new project (UC15)
-Admin/User|To add a new task to a project, assign a task lead, assign users to task|Create new task (UC16)
-Admin|Clear a project from the Group Board of all involved users|Delete project (UC17)
-Admin/User|Change restricted task values (due date, task name, remove user, etc.)|Edit task details (UC18)
-Admin/User|Add a message to a task card|Add Note (UC19)
-Admin/User|Include another user on a task card|Add user to task (UC20)
-Admin/User|Change status of task to ‘completed’, move task to ‘completed’ bin|Mark task completed (UC21)
 
 
 ### Use Case 1: Log In
@@ -313,11 +301,11 @@ The application saves the message being to log transactions
 
 ←Application connects to database
 
-User clicks chat box button
+→User clicks chat box button
 
-User selects user(s) to send message
+→User selects user(s) to send message
 
-User writes message and clicks send button
+→User writes message and clicks send button
 
 ←Keep log of message
 
@@ -325,11 +313,11 @@ User writes message and clicks send button
 
 ←Application connects to database
 
-User clicks chat box button
+→User clicks chat box button
 
-User doesn’t select user to send too
+→User doesn’t select user to send too
 
-User writes message and clicks send button
+→User writes message and clicks send button
 
 ←Send to message board
 
@@ -355,7 +343,7 @@ User is already logged in
 
 **_Postconditions:_**
 
-Notification that indicates new message
+→Notification that indicates new message
 
 **_Flow of events main Scenario (User is on different screen)_**
 
@@ -363,7 +351,7 @@ Notification that indicates new message
 
 ←Notification pops up next to Chat box button indication new message has been received
 
-User clicks button to go to Chat box
+→User clicks button to go to Chat box
 
 ←Notification goes away
 
@@ -371,7 +359,7 @@ User clicks button to go to Chat box
 
 ←Application can’t connect to database
 
-User in on the Chat box screen
+→User in on the Chat box screen
 
 ←New message shows on screen
 
@@ -463,7 +451,9 @@ Menu displays new status
 **_Participating actors:_** user interface, database, user account
 
 **_Preconditions:_**
+
 User has account
+
 The menu displays available functions the user can do on the task
 
 User logged in as Admin
@@ -502,6 +492,7 @@ User: Board displays assigned task
 User has account
 
 The menu displays available functions the user can do on the task
+
 User logged in
 
 **_Postconditions:_**
@@ -533,6 +524,7 @@ Admin/User: Calendar displays added task
 **_Preconditions:_**
 
 User has account
+
 The menu displays available functions the user can do on the task
 
 User logged in
@@ -596,9 +588,11 @@ Project name must not already exist in database
 
 **_Postconditions:_**
 
--   Project must be added to Group Board of all participants
--   Project table must be created in database
--   Users should be notified of their involvement in new project
+Project must be added to Group Board of all participants
+
+Project table must be created in database
+
+Users should be notified of their involvement in new project
 
 **_Flow of events:_**
 →Admin presses ‘Create Project’ button on home screen
@@ -625,16 +619,22 @@ System opens ‘New Project’ page in GUI
 
 **_Preconditions:_**
 
--   Project name must already exist in database
--   Assigned usernames must exist in database
--   Deadline must not be in the past
--   Task name must not already exist
+Project name must already exist in database
+
+Assigned usernames must exist in database
+
+Deadline must not be in the past
+
+Task name must not already exist
+
 
 **_Postconditions:_**
 
--   Task must be added to project on Group Board of all participants
--   Task table must be created in database
--   Users should be notified of their involvement of new task
+Task must be added to project on Group Board of all participants
+
+Task table must be created in database
+
+Users should be notified of their involvement of new task
 
 **_Flow of events:_**
 
@@ -662,12 +662,13 @@ System opens ‘New Project’ page in GUI
 
 **_Preconditions:_**
 
--   Project name must already exist in database
+Project name must already exist in database
 
 **_Postconditions:_**
 
--   Project should be removed from Group Board of all participants
--   Project table should stored in backup in case of deletion
+Project should be removed from Group Board of all participants
+
+Project table should stored in backup in case of deletion
 
 **_Flow of events:_**
 →Admin presses ‘Delete Project’ button on project stack
@@ -698,6 +699,7 @@ User must be admin, or original task creator
 **_Postconditions:_**
 
 Task table values should be updated in database
+
 Task information should be updated on Group Board of all participating users
 
 **_Flow of events:_**
@@ -724,6 +726,7 @@ Task information should be updated on Group Board of all participating users
 **_Preconditions:_**
 
 Task name must already exist in database
+
 User must be assigned to project containing task
 
 **_Postconditions:_**
@@ -733,10 +736,15 @@ Task table should be updated in database
 **_Flow of events:_**
 
 →User presses ‘Add Note’ button on task card
+
 ←System opens ‘New Note’ page in GUI
+
 →User enters new task note, clicks “Add Note”
+
 ←Task tables updated in database
+
 ←System notifies users assigned to task of new note
+
 
 ### **Use Case #20: Add user to task**
 
@@ -761,11 +769,17 @@ New user should be notified that they were added to a task
 **_Flow of events:_**
 
 →User presses ‘Add User’ button on task card
+
 ←System opens ‘Add user’ page in GUI
+
 →User selects other users to be added
+
 ←Task tables updated in database
+
 ←System notifies users of new task assignment
+
 ←System displays new users on task card in Group Board view of GUI
+
 
 ### **Use Case #21: Mark task completed**
 
@@ -773,9 +787,9 @@ New user should be notified that they were added to a task
 
 **_Initiating actor:_** Admin / User (only user who created task)  
 
-**_Goal:_** Change status of task to ‘completed’, move task to ‘completed’ bin  
+**_Goal: _** Change status of task to ‘completed’, move task to ‘completed’ bin  
 
-**_Participating actors:_** Database  
+**_Participating actors: _** Database  
 
 **_Preconditions:_**
 
@@ -791,9 +805,16 @@ Group Board of all participating users should be updated
 **_Flow of events:_**
 
 →Admin/User presses ‘Close Task’ on task card
+
 ←System opens ‘Close Task’ warning message in GUI window
+
 →Admin/User confirms
+
 ←Ask tables updated in database
+
 ←Project tables updated in database
+
 ←Closed task moved to ‘Completed Task’ bin in project stack
+
 ←System displays updated project stack in Group Board view of GUI
+
