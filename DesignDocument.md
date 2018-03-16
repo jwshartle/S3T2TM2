@@ -5,7 +5,7 @@ COVER PAGE
 
 List your names as you would like them, and your ID, we can clean this up later and sort names alphabetically  
 
-Anthony Castro - 9816
+Anthony Castro - 9816  
 Joseph Donati - 2847  
 Joseph Nehl - 0175  
 
@@ -50,37 +50,37 @@ The information for this will be stored into a SQL database. Most likely we will
 
 Your discussion so far should be causing your to think about deliniating specifific requirements. While I don't want to state that you need some specific number, look at some of the example projects on Ivan Marsik's website to get a sense of scope. If you don't have between one and two dozen requirements, you probably have not done enough work.  
 
-•	Users must be able to create a new account. (REQ1)  
-•	First account created must automatically be dubbed an admin. (REQ2)  
-•	Users cannot choose the same username as other users. (REQ3)  
-•	Username must be at least 3 letters and no more than 16. (REQ4)  
-•	Users cannot choose the same email as other users. (REQ5)  
-•	Users must be able to log in to account and profile state changes to online. (REQ6)  
-•	When user is logged in, no other person will be able to log into the same account. (REQ7)  
-•	Site must lock out users for an hour after 3 incorrect password attempts. (REQ8)  
-•	Site must lock out users for 1 day after 5 incorrect password attempts. (REQ9)  
-•	Site must lock out users after 10 incorrect password attempts. (REQ10)  
-•	Site admin must be able to unlock locked accounts. (REQ11)  
-•	Users must be able to view profile once logged in. (REQ12)  
-•	User must be able to change username and password when logged in to their account. (REQ13)  
-•	User must be able to add other information to their profile page, such as contact information and bio. (REQ14)  
-•	User must be able to check user list to view which users are online and offline. (REQ15)  
-•	When looking at a user’s profile or the user list, admins must able to set a user as an admin. (REQ16)  
-•	When looking at a user’s profile or the user list, admins must be able to delete accounts. (REQ17)  
-•	User must be able to log off and the profile state changes to offline(REQ18)  
+  *  Users must be able to create a new account. (REQ1)  
+  *  First account created must automatically be dubbed an admin. (REQ2)  
+  *  Users cannot choose the same username as other users. (REQ3)  
+  *  Username must be at least 3 letters and no more than 16. (REQ4)  
+  *  Users cannot choose the same email as other users. (REQ5)  
+  *  Users must be able to log in to account and profile state changes to online. (REQ6)  
+  *  When user is logged in, no other person will be able to log into the same account. (REQ7)  
+  *  Site must lock out users for an hour after 3 incorrect password attempts. (REQ8)  
+  *  Site must lock out users for 1 day after 5 incorrect password attempts. (REQ9)  
+  *  Site must lock out users after 10 incorrect password attempts. (REQ10)  
+  *  Site admin must be able to unlock locked accounts. (REQ11)  
+  *  Users must be able to view profile once logged in. (REQ12)  
+  *  User must be able to change username and password when logged in to their account. (REQ13)  
+  *  User must be able to add other information to their profile page, such as contact information and bio. (REQ14)  
+  *  User must be able to check user list to view which users are online and offline. (REQ15)  
+  *  When looking at a user’s profile or the user list, admins must able to set a user as an admin. (REQ16)  
+  *  When looking at a user’s profile or the user list, admins must be able to delete accounts. (REQ17)  
+  *  User must be able to log off and the profile state changes to offline(REQ18)  
 
 
 #### Use Cases
 
 Your requirments and previous sections should lead to your use cases. How will users use the system? What are the types of users? This sections should include detailed use cases as well as an accountability matrix that ties your requirements to your use cases.  
 
-##### Actor	        Goal	                                                                                Use Case Name  
-Admin/User	To log into the system so that changes to tasks are marked by a specific user	        Log in (UC1)  
-Admin/User	To log out of the system so that a new user can enter their information	                Log out (UC2)  
-Admin/User	To create a new account to access the program	                                        Create Account (UC3)  
-Admin	        To give admins extra power over normal users to edit, remove and change information	Admin Rights(UC4)  
-Admin/User	To edit the information of current user	                                                Change Profile (UC5)  
-Admin/User	To access a list of all users and display their status	                                Access User List (UC6)  
+##### Actor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Goal[Use Case Name]  
+Admin/User&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To log into the system so that changes to tasks are marked by a specific user[Log in (UC1)]  
+Admin/User&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To log out of the system so that a new user can enter their information[Log out (UC2)]  
+Admin/User&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To create a new account to access the program[Create Account (UC3)]  
+Admin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To give admins extra power over normal users to edit, remove and change information[Admin Rights(UC4)]  
+Admin/User&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To edit the information of current user[Change Profile (UC5)]  
+Admin/User&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To access a list of all users and display their status[Access User List (UC6)]  
 
 ##### Use Case 1: Log in  
 Related reqs: REQ6; REQ7; REQ8; REQ9; REQ10; REQ13; REQ15  
@@ -88,16 +88,16 @@ Initiating actor: User; Admin
 Goal: To log into the system so that changes to tasks are marked by a specific user  
 Participating actors: Database  
 Preconditions:  
-•	set of users and passwords in database is not empty  
-•	Username entered must exist  
-•	The user must not already be online  
-•	Password entered must match usernames password in database  
+  *  set of users and passwords in database is not empty  
+  *  Username entered must exist  
+  *  The user must not already be online  
+  *  Password entered must match usernames password in database  
 Postconditions:  
-•	State of user set to online  
+  *  State of user set to online  
 Flow of events:  
-•	User/Admin opens program and enters username and password  
-•	System opens new GUI page home screen  
-•	System changes state to online  
+  *  User/Admin opens program and enters username and password  
+  *  System opens new GUI page home screen  
+  *  System changes state to online  
 
 ##### Use Case 2: Log out  
 Related reqs: REQ8; REQ9; REQ10; REQ15; REQ18;  
@@ -105,13 +105,13 @@ Initiating actor: User; Admin
 Goal: To log out of the system so that a new user can enter their information  
 Participating actors: Database  
 Preconditions:  
-•	User is currently logged in  
+  *  User is currently logged in  
 Postconditions:  
-•	State of user set to offline  
+  *  State of user set to offline  
 Flow of events:  
-•	User/Admin clicks on the logout button  
-•	System opens new GUI page login  
-•	System changes state to offline  
+  *  User/Admin clicks on the logout button  
+  *  System opens new GUI page login  
+  *  System changes state to offline  
 
 ##### Use Case 3: Create Account
 Related reqs: REQ1; REQ2; REQ3; REQ4; REQ5
@@ -119,19 +119,19 @@ Initiating actor: User; Admin
 Goal: To create a new account to access the program
 Participating actors: Database
 Preconditions: 
-•	New Username must not be the same as existing an username
-•	New email must not be the same as an existing email
-•	Password must be more than 3 characters
-•	Passwords must match
+  *  New Username must not be the same as existing an username
+  *  New email must not be the same as an existing email
+  *  Password must be more than 3 characters
+  *  Passwords must match
 Postconditions: 
-•	New account is created with password/username and email attached to each other
-•	If first account, automatically sets user to admin
+  *  New account is created with password/username and email attached to each other
+  *  If first account, automatically sets user to admin
 Flow of events: 
-•	User/Admin clicks on the Create Account button
-•	System opens new GUI page create account
-•	User/Admin enters username, email and password (twice)
-•	System adds information to database
-•	System opens new GUI page home screen
+  *  User/Admin clicks on the Create Account button
+  *  System opens new GUI page create account
+  *  User/Admin enters username, email and password (twice)
+  *  System adds information to database
+  *  System opens new GUI page home screen
 
 ##### Use Case 4: Admin Rights  
 Related reqs: REQ11; REQ16; REQ17  
@@ -139,14 +139,14 @@ Initiating actor: Admin
 Goal: To give admins extra power over normal users to edit, remove and change information  
 Participating actors: Database  
 Preconditions:  
-•	Admin is currently logged in  
+  *  Admin is currently logged in  
 Postconditions:  
-•	A users account is removed from or changed in the database  
+  *  A users account is removed from or changed in the database  
 Flow of events:  
-•	Admin clicks on the delete/edit user button  
-•	System asks for admin password  
-•	Admin enters password  
-•	System removes/changes data from user  
+  *  Admin clicks on the delete/edit user button  
+  *  System asks for admin password  
+  *  Admin enters password  
+  *  System removes/changes data from user  
 
 ##### Use Case 5: Edit Profile  
 Related reqs: REQ12; REQ13; REQ14  
@@ -154,14 +154,14 @@ Initiating actor: Admin/User
 Goal: To edit the information of current user  
 Participating actors: Database  
 Preconditions:  
-•	User/Admin is logged in to the account they want to change  
+  *  User/Admin is logged in to the account they want to change  
 Postconditions:  
-•	A users information is changed in the database  
+  *  A users information is changed in the database  
 Flow of events:  
-•	User/Admin clicks on the edit my profile button  
-•	System shows a GUI with fields they can change (username, name, email, password, bio, picture?)  
-•	User/admin changes the data they wish to change  
-•	System updates database with new information  
+  *  User/Admin clicks on the edit my profile button  
+  *  System shows a GUI with fields they can change (username, name, email, password, bio, picture?)  
+  *  User/admin changes the data they wish to change  
+  *  System updates database with new information  
 
 ##### Use Case 6: Access User List  
 Related reqs: REQ6; REQ15; REQ18  
@@ -169,13 +169,13 @@ Initiating actor: Admin
 Goal: To view a list of Users and see their current state (offline/online)  
 Participating actors: Database  
 Preconditions:  
-•	Admin/User is currently logged in  
+  *  Admin/User is currently logged in  
 Postconditions:  
-•	Admin/User sees list of users/admins  
+  *  Admin/User sees list of users/admins  
 Flow of events:  
-•	Admin/User clicks User list button  
-•	System access database  
-•	Displays new GUI with list of user and their status (online/offline)  
+  *  Admin/User clicks User list button  
+  *  System access database  
+  *  Displays new GUI with list of user and their status (online/offline)  
 
 
 > Written with [StackEdit](https://stackedit.io/).
