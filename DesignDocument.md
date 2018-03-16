@@ -92,8 +92,9 @@ Preconditions:
   *  Username entered must exist  
   *  The user must not already be online  
   *  Password entered must match usernames password in database  
-Postconditions:  
-  *  State of user set to online  
+
+Postconditions:  *  
+  *  State of user set to online  *  
 Flow of events:  
   *  User/Admin opens program and enters username and password  
   *  System opens new GUI page home screen  
@@ -105,13 +106,13 @@ Initiating actor: User; Admin
 Goal: To log out of the system so that a new user can enter their information  
 Participating actors: Database  
 Preconditions:  
-  *  User is currently logged in  
+  *  User is currently logged in  *  
 Postconditions:  
-  *  State of user set to offline  
+  *  State of user set to offline  *  
 Flow of events:  
   *  User/Admin clicks on the logout button  
   *  System opens new GUI page login  
-  *  System changes state to offline  
+  *  System changes state to offline  *  
 
 ##### Use Case 3: Create Account
 Related reqs: REQ1; REQ2; REQ3; REQ4; REQ5
@@ -122,16 +123,16 @@ Preconditions:
   *  New Username must not be the same as existing an username
   *  New email must not be the same as an existing email
   *  Password must be more than 3 characters
-  *  Passwords must match
+  *  Passwords must match  *  
 Postconditions: 
   *  New account is created with password/username and email attached to each other
-  *  If first account, automatically sets user to admin
+  *  If first account, automatically sets user to admin  *  
 Flow of events: 
   *  User/Admin clicks on the Create Account button
   *  System opens new GUI page create account
   *  User/Admin enters username, email and password (twice)
   *  System adds information to database
-  *  System opens new GUI page home screen
+  *  System opens new GUI page home screen  *  
 
 ##### Use Case 4: Admin Rights  
 Related reqs: REQ11; REQ16; REQ17  
@@ -139,9 +140,9 @@ Initiating actor: Admin
 Goal: To give admins extra power over normal users to edit, remove and change information  
 Participating actors: Database  
 Preconditions:  
-  *  Admin is currently logged in  
+  *  Admin is currently logged in  *  
 Postconditions:  
-  *  A users account is removed from or changed in the database  
+  *  A users account is removed from or changed in the database  *  
 Flow of events:  
   *  Admin clicks on the delete/edit user button  
   *  System asks for admin password  
@@ -154,9 +155,9 @@ Initiating actor: Admin/User
 Goal: To edit the information of current user  
 Participating actors: Database  
 Preconditions:  
-  *  User/Admin is logged in to the account they want to change  
+  *  User/Admin is logged in to the account they want to change  *  
 Postconditions:  
-  *  A users information is changed in the database  
+  *  A users information is changed in the database  *  
 Flow of events:  
   *  User/Admin clicks on the edit my profile button  
   *  System shows a GUI with fields they can change (username, name, email, password, bio, picture?)  
@@ -169,9 +170,9 @@ Initiating actor: Admin
 Goal: To view a list of Users and see their current state (offline/online)  
 Participating actors: Database  
 Preconditions:  
-  *  Admin/User is currently logged in  
+  *  Admin/User is currently logged in  *  
 Postconditions:  
-  *  Admin/User sees list of users/admins  
+  *  Admin/User sees list of users/admins  *  
 Flow of events:  
   *  Admin/User clicks User list button  
   *  System access database  
