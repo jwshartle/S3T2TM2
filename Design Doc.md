@@ -1,4 +1,10 @@
 ﻿# Team 2 Design Document
+ ### Team Members:
+Gurpreet Sanghera
+Joseph Nehl
+Emery Haddy
+Anthony Castro
+Joseph Donati
 
 ## Introduction:
    Our software aims to provide a simple, intuitive task management utility for agile software development teams. Our program, for now named TM, will allow teams and individuals to plan projects, organize tasks and workloads, and track both team and individual progress.
@@ -94,6 +100,7 @@ Admin/User | To access a list of all users and display their status | Access Use
 Admin/User | To change description of already established task | Edit Description (UC7)
 Admin/User | To add status to task to show progress | Add status to task (UC8)
 Admin | To have admin assign tasks to users so that user can see task and its properties | Add users to task (UC9)
+
 
 ### Use Case 1: Log In
 
@@ -533,7 +540,6 @@ Perform a delete function on the database for the selected task for the assigned
 ← Display a ‘task deleted’ message to the user
 
 ### Use Case 14: Display Upcoming Tasks
-<!\[endif\]-->
 
 **_Related reqs:_**
 
@@ -565,7 +571,7 @@ For an assigned user/admin, display all tasks assigned to that user
 
 ### Use Case 15: Create New Project 
 
-**_Related reqs:_** REQ 31; REQ 32; REQ 35; REQ 36  
+**_Related reqs:_** REQ 60; REQ 61; REQ 64; REQ 65  
 
 **_Initiating actor:_** Admin
   
@@ -596,9 +602,9 @@ System notifies users of new project
 
 System displays project stack in Display Board view of GUI
 
-**Use Case #16: Create new task**
+### **Use Case #16: Create new task**
 
-**_Related reqs:_** REQ 31; REQ 32; REQ 33; REQ 34 
+**_Related reqs:_** REQ 60; REQ 61; REQ 62; REQ 63  
 
 **_Initiating actor:_** Admin/User  
 
@@ -633,9 +639,9 @@ System notifies involved users of new task
 
 System displays task in project stack of Display Board view of GUI
 
-**Use Case #17: Delete a project**
+### **Use Case #17: Delete a project**
 
-**_Related reqs:_** REQ 31; REQ 32; REQ 36  
+**_Related reqs:_** REQ 60; REQ 61; REQ 65  
 
 **_Initiating actor:_** Admin  
 
@@ -663,9 +669,9 @@ Project tables moved to backup section of database
 
  System removes project stack from Display Board view of GUI
 
-**Use Case #18: Edit task details**
+### **Use Case #18: Edit task details**
 
-**_Related reqs:_** REQ 31; REQ 32; REQ 33;  
+**_Related reqs:_** REQ 60; REQ 61; REQ 62;  
 
 **_Initiating actor:_** Admin / User (only user who created task)  
 
@@ -694,9 +700,9 @@ Task tables updated in database
 
 System notifies users of task update
 
-**Use Case #19: Add note to task**
+### **Use Case #19: Add note to task**
 
-**_Related reqs:_** REQ 32; REQ 33  
+**_Related reqs:_** REQ 61; REQ 62  
 
 **_Initiating actor:_** All users  
 
@@ -721,9 +727,9 @@ System notifies users of task update
 -   ¬ Task tables updated in database
 -   ¬ System notifies users assigned to task of new note
 
-**Use Case #20: Add user to task**
+### **Use Case #20: Add user to task**
 
-**_Related reqs:_** REQ 32; REQ 33; REQ 34; REQ 35  
+**_Related reqs:_** REQ 61; REQ 62; REQ 63; REQ 64  
 
 **_Initiating actor:_** All users  
 
@@ -750,9 +756,9 @@ System notifies users of task update
 -   ¬ System notifies users of new task assignment
 -   ¬ System displays new users on task card in Group Board view of GUI
 
-**Use Case #21: Mark task completed**
+### **Use Case #21: Mark task completed**
 
-**_Related reqs:_** REQ 31; REQ 32; REQ 33; REQ 34
+**_Related reqs:_** REQ 60; REQ 61; REQ 62; REQ 63
 
 **_Initiating actor:_** Admin / User (only user who created task)  
 
