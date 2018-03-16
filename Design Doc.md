@@ -100,6 +100,18 @@ Admin/User | To access a list of all users and display their status | Access Use
 Admin/User | To change description of already established task | Edit Description (UC7)
 Admin/User | To add status to task to show progress | Add status to task (UC8)
 Admin | To have admin assign tasks to users so that user can see task and its properties | Add users to task (UC9)
+Admin/User|To add or change the status of a task|Add status of task (UC10)
+Admin|To add user to a task|Add user to task(UC11)
+Admin/User|To add a task to a project|Add upcoming task (UC12)
+Admin/User|Delete an entered task|Delete task (UC13)
+Admin/User|Display all upcoming tasks that have not been deleted|Display Upcoming tasks (UC14)
+Admin|To create a new project and assign the users who will participate|Create new project (UC15)
+Admin/User|To add a new task to a project, assign a task lead, assign users to task|Create new task (UC16)
+Admin|Clear a project from the Group Board of all involved users|Delete project (UC17)
+Admin/User|Change restricted task values (due date, task name, remove user, etc.)|Edit task details (UC18)
+Admin/User|Add a message to a task card|Add Note (UC19)
+Admin/User|Include another user on a task card|Add user to task (UC20)
+Admin/User|Change status of task to ‘completed’, move task to ‘completed’ bin|Mark task completed (UC21)
 
 
 ### Use Case 1: Log In
@@ -762,9 +774,9 @@ System notifies users of task update
 
 **_Initiating actor:_** Admin / User (only user who created task)  
 
-**_Goal: _** Change status of task to ‘completed’, move task to ‘completed’ bin  
+**_Goal:_** Change status of task to ‘completed’, move task to ‘completed’ bin  
 
-**_Participating actors: _** Database  
+**_Participating actors:_** Database  
 
 **_Preconditions:_**
 
