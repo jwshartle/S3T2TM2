@@ -277,7 +277,7 @@ System access database
 
 ### Use Case 7: Send Message - Chatbox
 
-**_Related reqs:_ REQ101, REQ102, REQ103, REQ104**
+**_Related reqs:_ REQ 19, REQ 20, REQ 21, REQ 22**
 
 **_Initiating actor:_** Any online user
 
@@ -325,7 +325,7 @@ Message to tell user chat box is down
 
 ### Use Case 8: Receive Message - Chatbox
 
-**_Related reqs:_ REQ101**
+**_Related reqs:_ REQ 19**
 
 **_Initiating actor:_** Any online user
 
@@ -361,7 +361,7 @@ New message shows on screen
 
 ### Use Case 9: Edit Description
 
-**_Related reqs:_**
+**_Related reqs:_** REQ 6, REQ 19, REQ 22, REQ 23, REQ 33, REQ 36
 
 **_Initiating actor:_** User; Admin
 
@@ -403,7 +403,7 @@ display new description on task menu
 
 ### Use Case 10: Add Status of Task 
 
-**_Related reqs:_**
+**_Related reqs:_** REQ 6, REQ 19, REQ 22, REQ 25, REQ 33, REQ 36
 
 **_Initiating actor:_** User; Admin
 
@@ -437,7 +437,7 @@ Display new status on task menu
 
 ### Use Case 11: Add User to Task
 
-**_Related reqs:_**
+**_Related reqs:_** REQ 6, REQ 19, REQ 22, REQ 24, REQ 33, REQ 34, REQ 35
 
 **_Initiating actor:_** Admin
 
@@ -472,7 +472,7 @@ Display team member name on task menu
 
 ### Use Case 12: Add Upcoming Tasks
 
-**_Related reqs:_**
+**_Related reqs:_** REQ 6, REQ 12, REQ 25, REQ 26, REQ 27, REQ 28, REQ 30
 
 **_Initiating actor:_** Admin/User
 
@@ -505,7 +505,7 @@ Write into table which holds task name and user assigned
 
 ### Use Case 13: Delete Tasks
 
-**_Related reqs:_**
+**_Related reqs:_** REQ 6, REQ 23, REQ 28, REQ 29
 
 **_Initiating actor:_** Admin/User
 
@@ -535,7 +535,7 @@ Perform a delete function on the database for the selected task for the assigned
 
 ### Use Case 14: Display Upcoming Tasks
 
-**_Related reqs:_**
+**_Related reqs:_** REQ 6, REQ 26, REQ 27, REQ 29, REQ 30
 
 **_Initiating actor:_** Admin/User
 
