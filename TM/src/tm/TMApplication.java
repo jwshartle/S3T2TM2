@@ -7,6 +7,8 @@ package tm;
 
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import tm.Panels.pnlChatbox;
 import tm.Panels.pnlReports;
@@ -92,6 +94,7 @@ public class TMApplication extends javax.swing.JFrame
         jLabel10 = new javax.swing.JLabel();
         pnlHeader = new javax.swing.JPanel();
         lblUsername = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
         pnlTopbar = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         pnlMain = new javax.swing.JPanel();
@@ -312,6 +315,20 @@ public class TMApplication extends javax.swing.JFrame
         lblUsername.setForeground(new java.awt.Color(255, 255, 255));
         lblUsername.setText("Username");
 
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogout.setText("Logout");
+        btnLogout.setBorder(null);
+        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnLogoutMousePressed(evt);
+            }
+        });
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
         pnlHeader.setLayout(pnlHeaderLayout);
         pnlHeaderLayout.setHorizontalGroup(
@@ -319,13 +336,17 @@ public class TMApplication extends javax.swing.JFrame
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHeaderLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblUsername)
-                .addGap(89, 89, 89))
+                .addGap(18, 18, 18)
+                .addComponent(btnLogout)
+                .addContainerGap())
         );
         pnlHeaderLayout.setVerticalGroup(
             pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHeaderLayout.createSequentialGroup()
                 .addGap(0, 10, Short.MAX_VALUE)
-                .addComponent(lblUsername))
+                .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUsername)
+                    .addComponent(btnLogout)))
         );
 
         pnlTopbar.setBackground(new java.awt.Color(0, 153, 204));
@@ -340,7 +361,7 @@ public class TMApplication extends javax.swing.JFrame
             pnlTopbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTopbarLayout.createSequentialGroup()
                 .addComponent(jLabel11)
-                .addGap(0, 665, Short.MAX_VALUE))
+                .addGap(0, 525, Short.MAX_VALUE))
         );
         pnlTopbarLayout.setVerticalGroup(
             pnlTopbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -366,9 +387,7 @@ public class TMApplication extends javax.swing.JFrame
                 .addComponent(pnlSidebar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(pnlLayoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlTopbar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(pnlLayoutLayout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(pnlMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(pnlMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addComponent(pnlHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnlLayoutLayout.setVerticalGroup(
@@ -454,6 +473,24 @@ public class TMApplication extends javax.swing.JFrame
         showPanel("profileCard");
     }//GEN-LAST:event_btnProfileMousePressed
 
+    private void btnLogoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMousePressed
+        // TODO add your handling code here:
+        //setVisible(false);
+        
+    }//GEN-LAST:event_btnLogoutMousePressed
+    //Logout and close program
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        if (JOptionPane.showConfirmDialog(this, 
+            "Are you sure to logout?", "Logout", 
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
+        
+        //Will need to mark user as offline
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -494,6 +531,7 @@ public class TMApplication extends javax.swing.JFrame
     private javax.swing.JPanel btnCalendar;
     private javax.swing.JPanel btnChatbox;
     private javax.swing.JPanel btnDashboard;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JPanel btnProfile;
     private javax.swing.JPanel btnReports;
     private javax.swing.JLabel jLabel1;
