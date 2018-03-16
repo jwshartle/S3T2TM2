@@ -81,6 +81,53 @@ Building on the current design of the project, we want to add the ability to edi
 35) Maintain table of users in system
 36) Maintain table of projects in system
 
+
+## Tracability Matrix:
+
+|REQ|PW|UC1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|
+|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|--|
+|REQ1 |5| |X|X| | | | | | | | | | | | | | | | | | |
+|REQ2 |1| |X|X| | | | | | | | | | | | | | | | | | |
+|REQ3 |2| | |X| | | | | | | | | | | | | | | | | | |
+|REQ4 |2| | |X| | | | | | | | | | | | | | | | | | |
+|REQ5 |2| | |X| | | | | | | | | | | | | | | | | | |
+|REQ6 |2|X| | | | |X| | |X|X|X|X|X|X| | | | | | | | |
+|REQ7 |4|X| | | | | | | | | | | | | | | | | | | | | |
+|REQ8 |3|X|X| | | | | | | | | | | | | | | | | | | | |
+|REQ9 |1|X|X| | | | | | | | | | | | | | | | | | | | |
+|REQ10|1|X|X| | | | | | | | | | | | | | | | | | | | |
+|REQ11|1| | | |X| | | | | | | | | | | | | | | | | |
+|REQ12|3| | | | |X| | | | | | |X| | | | | | | | | |
+|REQ13|5|X| | | |X| | | | | | | | | | | | | | | | | |
+|REQ14|2| | | | |X| | | | | | | | | | | | | | | | |
+|REQ15|3|X|X| | | |X| | | | | | | | | | | | | | | | |
+|REQ16|1| | | |X| | | | | | | | | | | | | | | | | |
+|REQ17|1| | | |X| | | | | | | | | | | | | | | | | |
+|REQ18|5| |X| | | |X| | | | | | | | | | | | | | | | |
+|REQ19|5| | | | | | |X|X|X|X|X| | | | | | | | | | |
+|REQ20|4| | | | | | |X| | | | | | | | | | | | | | |
+|REQ21|3| | | | | | |X| | | | | | | | | | | | | | |
+|REQ22|3| | | | | | |X| |X|X|X| | | | | | | | | | |
+|REQ23|1| | | | | | | | |X| | | |X| | | | | | | | |
+|REQ24|3| | | | | | | | | | |X| | | | | | | | | | |
+|REQ25|3| | | | | | | | | |X| |X| | | | | | | | | |
+|REQ26|5| | | | | | | | | | | |X| |X| | | | | | | |
+|REQ27|3| | | | | | | | | | | |X| |X| | | | | | | |
+|REQ28|4| | | | | | | | | | | |X|X| | | | | | | | |
+|REQ29|5| | | | | | | | | | | | |X|X| | | | | | | |
+|REQ30|4| | | | | | | | | | | |X| |X| | | | | | | |
+|REQ31|1| | | | | | | | | | | | | | |X|X|X|X| | |X|
+|REQ32|5| | | | | | | | | | | | | | |X|X|X|X|X|X|X|
+|REQ33|4| | | | | | | | |X|X|X| | | | |X| |X|X|X|X|
+|REQ34|3| | | | | | | | | | |X| | | | |X| | | |X|X|
+|REQ35|3| | | | | | | | | | |X| | | |X| | | | |X| |
+|REQ36|2| | | | | | | | |X|X| | | | |X| |X| | | | |
+|MAX PW| |5|5|5|1|5|5|5|5|5|5|5|5|5|5|5|5|5|5|5|5|5|
+|TOTAL PW| | 19|19 |12 |3 |10 |10 |15 |5 |17 |19 |23 |24 |12 |19 |11 |13 |8 |10 |9 |15 |13 |
+
+
+
+
 ## Use Cases: 
 
 Actor | Goal | Use Case
@@ -107,7 +154,7 @@ Admin/User|Add a message to a task card|Add Note (UC19)
 Admin/User|Include another user on a task card|Add user to task (UC20)
 Admin/User|Change status of task to ‘completed’, move task to ‘completed’ bin|Mark task completed (UC21)
 
-
+---
 ### Use Case 1: Log In
 
 **_Related reqs:_** REQ 6; REQ 7; REQ 8; REQ 9; REQ 10; REQ 13; REQ 15
@@ -140,6 +187,7 @@ State of user set to online
 
 ←System changes state to online
 
+---
 ### Use Case 2: Log Out
 
 **_Related reqs:_** REQ 8; REQ 9; REQ 10; REQ 15; REQ 18;
@@ -166,6 +214,7 @@ State of user set to offline
 
 ←System changes state to offline
 
+---
 ### Use Case 3: Create Account
 
 **_Related reqs:_** REQ 1; REQ 2; REQ 3; REQ 4; REQ 5
@@ -204,6 +253,8 @@ If first account, automatically sets user to admin
 
 ←System opens new GUI page home screen
 
+
+---
 ### Use Case 4: Admin Rights
 
 **_Related reqs:_** REQ 11; REQ 16; RE Q17
@@ -232,6 +283,8 @@ A users account is removed from or changed in the database
 
 ←System removes/changes data from user
 
+
+---
 ### Use Case 5: Edit Profile
 
 
@@ -261,6 +314,7 @@ A users information is changed in the database
 
 ←System updates database with new information
 
+---
 ### Use Case 6: Access User List
 
 **_Related reqs:_** REQ 6;  REQ 15; REQ 18
@@ -287,6 +341,7 @@ Admin/User sees list of users/admins
 
 ←Displays new GUI with list of user and their status (online/offline)
 
+---
 ### Use Case 7: Send Message - Chatbox
 
 **_Related reqs:_** REQ 19, REQ 20, REQ 21, REQ 22
@@ -339,6 +394,7 @@ The application saves the message being to log transactions
 
 ←Message to tell user chat box is down
 
+---
 ### Use Case 8: Receive Message - Chatbox
 
 **_Related reqs:_** REQ 19
@@ -375,6 +431,7 @@ User is already logged in
 
 ←New message shows on screen
 
+---
 ### Use Case 9: Edit Description
 
 **_Related reqs:_** REQ 6, REQ 19, REQ 22, REQ 23, REQ 33, REQ 36
@@ -417,6 +474,7 @@ Menu displays edited description
 
 ←Display new description on task menu
 
+---
 ### Use Case 10: Add Status of Task 
 
 **_Related reqs:_** REQ 6, REQ 19, REQ 22, REQ 25, REQ 33, REQ 36
@@ -452,6 +510,7 @@ Menu displays new status
 
 ←Display new status on task menu
 
+---
 ### Use Case 11: Add User to Task
 
 **_Related reqs:_** REQ 6, REQ 19, REQ 22, REQ 24, REQ 33, REQ 34, REQ 35
@@ -489,6 +548,7 @@ User: Board displays assigned task
 
 ←Display team member name on task menu
 
+---
 ### Use Case 12: Add Upcoming Tasks
 
 **_Related reqs:_** REQ 6, REQ 12, REQ 25, REQ 26, REQ 27, REQ 28, REQ 30
@@ -523,6 +583,7 @@ Admin/User: Calendar displays added task
 
 ← Display added task
 
+---
 ### Use Case 13: Delete Tasks
 
 **_Related reqs:_** REQ 6, REQ 23, REQ 28, REQ 29
@@ -554,6 +615,7 @@ Admin/User: Task is deleted from the calendar through the database. Task doesn�
 
 ←Display a ‘task deleted’ message to the user
 
+---
 ### Use Case 14: Display Upcoming Tasks
 
 **_Related reqs:_** REQ 6, REQ 26, REQ 27, REQ 29, REQ 30
@@ -584,6 +646,7 @@ Admin/User: All relevant tasks are displayed on the calendar view
 
 ←For an assigned user/admin, display all tasks assigned to that user
 
+---
 ### Use Case 15: Create New Project 
 
 **_Related reqs:_** REQ 31; REQ 32; REQ 35; REQ 36  
@@ -619,6 +682,7 @@ System opens ‘New Project’ page in GUI
 
 ←System displays project stack in Display Board view of GUI
 
+---
 ### **Use Case #16: Create new task**
 
 **_Related reqs:_** REQ 31; REQ 32; REQ 33; REQ 34  
@@ -662,6 +726,7 @@ Users should be notified of their involvement of new task
 
 ←System displays task in project stack of Display Board view of GUI
 
+---
 ### **Use Case #17: Delete a project**
 
 **_Related reqs:_** REQ 31; REQ 32; REQ 36  
@@ -693,6 +758,7 @@ Project table should stored in backup in case of deletion
 
 ←System removes project stack from Display Board view of GUI
 
+---
 ### **Use Case #18: Edit task details**
 
 **_Related reqs:_** REQ 31; REQ 32; REQ 33;  
@@ -725,6 +791,7 @@ Task information should be updated on Group Board of all participating users
 
 ←System notifies users of task update
 
+---
 ### **Use Case #19: Add note to task**
 
 **_Related reqs:_** REQ 32; REQ 33  
@@ -757,7 +824,7 @@ Task table should be updated in database
 
 ←System notifies users assigned to task of new note
 
-
+---
 ### **Use Case #20: Add user to task**
 
 **_Related reqs:_** REQ 32; REQ 33; REQ 34; REQ 35  
@@ -792,29 +859,29 @@ New user should be notified that they were added to a task
 
 ←System displays new users on task card in Group Board view of GUI
 
-
+---
 ### **Use Case #21: Mark task completed**
 
 **_Related reqs:_** REQ 31; REQ 32; REQ 33; REQ 34
 
 **_Initiating actor:_** Admin / User (only user who created task)  
 
-**_Goal: _** Change status of task to ‘completed’, move task to ‘completed’ bin  
+***Goal:*** Change status of task to ‘completed’, move task to ‘completed’ bin  
 
-**_Participating actors: _** Database  
+**Participating actors:** Database  
  
-**_Preconditions:_**
+***Preconditions:***
 
 Task name must already exist in database
 User must be admin, or original task creator
 
-**_Postconditions:_**
+***Postconditions:***
 
 Task table values should be updated in database
 Project table values should be updated in database
 Group Board of all participating users should be updated
 
-**_Flow of events:_**
+***Flow of events:***
 
 →Admin/User presses ‘Close Task’ on task card
 
