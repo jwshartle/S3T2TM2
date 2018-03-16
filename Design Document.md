@@ -1,7 +1,12 @@
 ﻿# Team 2 Design Document
 
 ## Introduction:
-   Our software aims to provide a simple, intuitive task management utility for agile software development teams. Our program, for now named TM, will allow teams and individuals to plan projects, organize tasks and workloads, and track both team and individual progress.
+
+Our software aims to provide a simple, intuitive task management utility for agile software development teams. Our program, for now named TM, will allow teams and individuals to plan projects, organize tasks, and track both team and individual progress. A simple, refined user interface will display only as much information as necessary, keeping the user focused on working, not coordinating.
+
+Communication and flexibility are both key in an agile environment and will be two of the primary focuses of TM beyond simple task planning. TM will be accessible from anywhere with cloud connectivity, keeping teams on track even when working remotely. To communicate about tasks and projects, multiple paths of connection will be found throughout the software. With message feeds for conversations and embedded notepads for tasks, teams will be able to collaborate and plan in the same application. Fewer applications running reduces overhead time and distraction for each user, and TM will create more informed, more efficient teams.
+
+TM will also stress equality. Whether you have 3 users on a task or 50, everyone will have the ability to work together to get the job done. Adding content and adding teammates will be done on the fly, by any project member. Teams will have the freedom to find the right person for each job without having to run every decision through management. Managers will still have the tools to keep their projects on track, but TM will help teammates find their own ways of pushing the project forward.
 
 ## Product Reviews:
    Since each of our team members had a task to research, we each took it in turn to review a task to implement. The first function we looked at implementing was login systems. We examined 3 different login systems and profile outlays to draw ideas from. Although many were too in depth for the scale of this projects needed functions, they did help provide a fundamental look at what a basic profile would need and what should happen users create accounts and log in to a system. The first one was an obvious choice, github. 
