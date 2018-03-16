@@ -108,7 +108,7 @@ Admin | To have admin assign tasks to users so that user can see task and its pr
 
 **_Preconditions:_**
 
-set of users and passwords in database is not empty
+Set of users and passwords in database is not empty
 
 Username entered must exist
 
@@ -379,11 +379,11 @@ User has account
 
 Task already created and has description
 
-the menu displays available functions the user can do on the task
+The menu displays available functions the user can do on the task
 
 **_Postconditions:_**
 
-menu displays edited description
+Menu displays edited description
 
 **_Flow of events:_**
 
@@ -790,7 +790,7 @@ New user should be notified that they were added to a task
 **_Goal: _** Change status of task to ‘completed’, move task to ‘completed’ bin  
 
 **_Participating actors: _** Database  
-
+ 
 **_Preconditions:_**
 
 Task name must already exist in database
