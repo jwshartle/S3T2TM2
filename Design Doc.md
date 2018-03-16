@@ -98,7 +98,7 @@ Admin | To have admin assign tasks to users so that user can see task and its pr
 
 ### Use Case 1: Log In
 
-**_Related reqs:_** REQ6; REQ7; REQ8; REQ9; REQ10; REQ13; REQ15
+**_Related reqs:_** REQ 6; REQ 7; REQ 8; REQ 9; REQ 10; REQ 13; REQ 15
 
 **_Initiating actor:_** User; Admin
 
@@ -122,15 +122,15 @@ State of user set to online
 
 **_Flow of events:_**
 
- User/Admin opens program and enters username and password
+→User/Admin opens program and enters username and password
 
-System opens new GUI page home screen
+←System opens new GUI page home screen
 
-System changes state to online
+←System changes state to online
 
 ### Use Case 2: Log Out
 
-**_Related reqs:_** REQ8; REQ9; REQ10; REQ15; REQ18;
+**_Related reqs:_** REQ 8; REQ 9; REQ 10; REQ 15; REQ 18;
 
 **_Initiating actor:_** User; Admin
 
@@ -148,15 +148,15 @@ State of user set to offline
 
 **_Flow of events:_**
 
-User/Admin clicks on the logout button
+→User/Admin clicks on the logout button
 
-System opens new GUI page login
+←System opens new GUI page login
 
-System changes state to offline
+←System changes state to offline
 
 ### Use Case 3: Create Account
 
-**_Related reqs:_** REQ1; REQ2; REQ3; REQ4; REQ5
+**_Related reqs:_** REQ 1; REQ 2; REQ 3; REQ 4; REQ 5
 
 **_Initiating actor:_** User; Admin
 
@@ -182,19 +182,19 @@ If first account, automatically sets user to admin
 
 **_Flow of events:_**
 
-User/Admin clicks on the Create Account button
+→User/Admin clicks on the Create Account button
 
-System opens new GUI page create account
+←System opens new GUI page create account
 
-User/Admin enters username, email and password (twice)
+→User/Admin enters username, email and password (twice)
 
-<System adds information to database
+←System adds information to database
 
-System opens new GUI page home screen
+←System opens new GUI page home screen
 
 ### Use Case 4: Admin Rights
 
-**_Related reqs:_** REQ11; REQ16; REQ17
+**_Related reqs:_** REQ 11; REQ 16; RE Q17
 
 **_Initiating actor:_** Admin
 
@@ -212,18 +212,18 @@ A users account is removed from or changed in the database
 
 **_Flow of events:_**
 
-Admin clicks on the delete/edit user button
+→Admin clicks on the delete/edit user button
 
-System asks for admin password
+←System asks for admin password
 
-Admin enters password
+→Admin enters password
 
-System removes/changes data from user
+←System removes/changes data from user
 
 ### Use Case 5: Edit Profile
 
 
-**_Related reqs:_** REQ12; REQ13; REQ14
+**_Related reqs:_** REQ 12; REQ 13; REQ 14
 
 **_Initiating actor:_** Admin/User
 
@@ -241,17 +241,17 @@ A users information is changed in the database
 
 **_Flow of events:_**
 
-User/Admin clicks on the edit my profile button
+→User/Admin clicks on the edit my profile button
 
-System shows a GUI with fields they can change (username, name, email, password, bio, picture?)
+←System shows a GUI with fields they can change (username, name, email, password, bio, picture?)
 
-User/admin changes the data they wish to change
+→User/admin changes the data they wish to change
 
-System updates database with new information
+←System updates database with new information
 
 ### Use Case 6: Access User List
 
-**_Related reqs:_** REQ6;  REQ15; REQ18
+**_Related reqs:_** REQ 6;  REQ 15; REQ 18
 
 **_Initiating actor:_** Admin
 
@@ -269,15 +269,15 @@ Admin/User sees list of users/admins
 
 **_Flow of events:_**
 
-Admin/User clicks User list button
+→Admin/User clicks User list button
 
-System access database
+←System access database
 
- Displays new GUI with list of user and their status (online/offline)
+←Displays new GUI with list of user and their status (online/offline)
 
 ### Use Case 7: Send Message - Chatbox
 
-**_Related reqs:_ REQ 19, REQ 20, REQ 21, REQ 22**
+**_Related reqs:_** REQ 19, REQ 20, REQ 21, REQ 22
 
 **_Initiating actor:_** Any online user
 
@@ -299,7 +299,7 @@ The application saves the message being to log transactions
 
 **_Flow of events:  (User sends to one or multiple users)_**
 
-Application connects to database
+←Application connects to database
 
 User clicks chat box button
 
@@ -307,9 +307,11 @@ User selects user(s) to send message
 
 User writes message and clicks send button
 
+←Keep log of message
+
 **_Flow of events alternative scenario: (User sends to team board)_**
 
-Application connects to database
+←Application connects to database
 
 User clicks chat box button
 
@@ -317,15 +319,17 @@ User doesn’t select user to send too
 
 User writes message and clicks send button
 
+←Send to message board
+
 **_Flow of events error scenario:_**
 
-Application can’t connect to database
+←Application can’t connect to database
 
-Message to tell user chat box is down
+←Message to tell user chat box is down
 
 ### Use Case 8: Receive Message - Chatbox
 
-**_Related reqs:_ REQ 19**
+**_Related reqs:_** REQ 19
 
 **_Initiating actor:_** Any online user
 
@@ -343,21 +347,21 @@ Notification that indicates new message
 
 **_Flow of events main Scenario (User is on different screen)_**
 
-Application can’t connect to database
+←Application can’t connect to database
 
-Notification pops up next to Chat box button indication new message has been received
+←Notification pops up next to Chat box button indication new message has been received
 
 User clicks button to go to Chat box
 
-Notification goes away
+←Notification goes away
 
 **_Flow of events alternative Scenario (User is on Chatbox screen)_**
 
-Application can’t connect to database
+←Application can’t connect to database
 
 User in on the Chat box screen
 
-New message shows on screen
+←New message shows on screen
 
 ### Use Case 9: Edit Description
 
@@ -383,23 +387,23 @@ menu displays edited description
 
 **_Flow of events:_**
 
-User/Admin opens program and enters username and password (include login use case)
+→User/Admin opens program and enters username and password (include login use case)
 
- On board, user selects task
+→On board, user selects task
 
- On the menu of available functions for the tasks, the user selects “edit description”
+→On the menu of available functions for the tasks, the user selects “edit description”
 
-Find description on table
+←Find description on table
 
-On the menu of available functions for the tasks, the user selects edit
+←On the menu of available functions for the tasks, the user selects edit
 
- output to user
+←Output to user
 
- User makes changes to description
+→User makes changes to description
 
- write into table
+←Write into table
 
-display new description on task menu
+←Display new description on task menu
 
 ### Use Case 10: Add Status of Task 
 
@@ -420,20 +424,21 @@ The menu displays available functions the user can do on the task
 Menu displays new status
 
 **_Flow of events:_**
-User/Admin opens program and enters username and password (include login use case)
+→User/Admin opens program and enters username and password (include login use case)
 
-On board, user selects task
+→On board, user selects task
 
-On the menu of available functions for the tasks, the user selects “change status”
+→On the menu of available functions for the tasks, the user selects “change status”
 
-Find status on table
+←Find status on table
 
-output to user
+←Output to user
 
-User selects new status from option of: not started, in progress, finished
-write into table
+→User selects new status from option of: not started, in progress, finished
 
-Display new status on task menu
+←Write into table
+
+←Display new status on task menu
 
 ### Use Case 11: Add User to Task
 
@@ -458,17 +463,17 @@ Admin: Board displays tasks with assigned users
 User: Board displays assigned task
 
 **_Flow of events:_**
-User/Admin opens program and enters username and password (include login use case)
+→User/Admin opens program and enters username and password (include login use case)
 
-On board, user selects task
+→On board, user selects task
 
-On the menu of available functions for the tasks, the user selects “assign user”
+→On the menu of available functions for the tasks, the user selects “assign user”
 
-From menu, manager selects user from list to assign to task
+→From menu, manager selects user from list to assign to task
 
-Write into table which holds task name and user assigned
+←Write into table which holds task name and user assigned
 
-Display team member name on task menu
+←Display team member name on task menu
 
 ### Use Case 12: Add Upcoming Tasks
 
@@ -493,13 +498,13 @@ Admin/User: Calendar displays added task
 
 **_Flow of events:_**
 
-User/Admin opens program and enters username and password (include login use case)
+→User/Admin opens program and enters username and password (include login use case)
 
 → User/Admin selects date on which task should be added
 
 → User enters task
 
-Write into table which holds task name and user assigned
+←Write into table which holds task name and user assigned
 
 ← Display added task
 
@@ -525,13 +530,13 @@ User logged in
 Admin/User: Task is deleted from the calendar through the database. Task doesn’t show up on calendar view and user is not alerted
 
 **_Flow of events:_**
-User/Admin opens program and enters username and password (include login use case)
+→User/Admin opens program and enters username and password (include login use case)
 
-→ User/Admin selects task to be deleted
+→User/Admin selects task to be deleted
 
-Perform a delete function on the database for the selected task for the assigned user
+→Perform a delete function on the database for the selected task for the assigned user
 
-← Display a ‘task deleted’ message to the user
+←Display a ‘task deleted’ message to the user
 
 ### Use Case 14: Display Upcoming Tasks
 
@@ -557,11 +562,11 @@ Admin/User: All relevant tasks are displayed on the calendar view
 
 **_Flow of events:_**
 
-User/Admin opens program and enters username and password (include login use case)
+→User/Admin opens program and enters username and password (include login use case)
 
-User/Admin selects function to be performed – Display all tasks
+→User/Admin selects function to be performed – Display all tasks
 
-For an assigned user/admin, display all tasks assigned to that user
+←For an assigned user/admin, display all tasks assigned to that user
 
 ### Use Case 15: Create New Project 
 
@@ -584,17 +589,17 @@ Project name must not already exist in database
 -   Users should be notified of their involvement in new project
 
 **_Flow of events:_**
-Admin presses ‘Create Project’ button on home screen
+→Admin presses ‘Create Project’ button on home screen
 
 System opens ‘New Project’ page in GUI
 
-Admin enters new project information, clicks “Create Project”
+→Admin enters new project information, clicks “Create Project”
 
-Project tables created in database
+←Project tables created in database
 
-System notifies users of new project
+←System notifies users of new project
 
-System displays project stack in Display Board view of GUI
+←System displays project stack in Display Board view of GUI
 
 ### **Use Case #16: Create new task**
 
@@ -621,17 +626,17 @@ System displays project stack in Display Board view of GUI
 
 **_Flow of events:_**
 
-Admin/user presses ‘Create Task’ button on project stack
+→Admin/user presses ‘Create Task’ button on project stack
 
-System opens ‘New Task’ page in GUI
+←System opens ‘New Task’ page in GUI
 
- Admin/user enters new task information, clicks “Create Task”
+→Admin/user enters new task information, clicks “Create Task”
 
-Task table created in database
+←Task table created in database
 
-System notifies involved users of new task
+←System notifies involved users of new task
 
-System displays task in project stack of Display Board view of GUI
+←System displays task in project stack of Display Board view of GUI
 
 ### **Use Case #17: Delete a project**
 
@@ -653,15 +658,15 @@ System displays task in project stack of Display Board view of GUI
 -   Project table should stored in backup in case of deletion
 
 **_Flow of events:_**
- Admin presses ‘Delete Project’ button on project stack
+→Admin presses ‘Delete Project’ button on project stack
 
-System opens ‘Delete Project’ warning message in GUI
+←System opens ‘Delete Project’ warning message in GUI
 
-Admin clicks “Confirm Delete”
+→Admin clicks “Confirm Delete”
 
-Project tables moved to backup section of database
+←Project tables moved to backup section of database
 
- System removes project stack from Display Board view of GUI
+←System removes project stack from Display Board view of GUI
 
 ### **Use Case #18: Edit task details**
 
@@ -675,24 +680,24 @@ Project tables moved to backup section of database
  
 **_Preconditions:_**
 
--   Task name must already exist in database
--   User must be admin, or original task creator
+Task name must already exist in database
+User must be admin, or original task creator
 
 **_Postconditions:_**
 
--   Task table values should be updated in database
--   Task information should be updated on Group Board of all participating users
+Task table values should be updated in database
+Task information should be updated on Group Board of all participating users
 
 **_Flow of events:_**
-Admin/User presses ‘Edit’ button on task card
+→Admin/User presses ‘Edit’ button on task card
 
-System opens ‘Edit task’ page in GUI
+←System opens ‘Edit task’ page in GUI
 
-Admin/User changes data entries, clicks “Save changes”
+→Admin/User changes data entries, clicks “Save changes”
 
-Task tables updated in database
+←Task tables updated in database
 
-System notifies users of task update
+←System notifies users of task update
 
 ### **Use Case #19: Add note to task**
 
@@ -706,20 +711,20 @@ System notifies users of task update
 
 **_Preconditions:_**
 
--   Task name must already exist in database
--   User must be assigned to project containing task
+Task name must already exist in database
+User must be assigned to project containing task
 
 **_Postconditions:_**
 
--   Task table should be updated in database
+Task table should be updated in database
 
 **_Flow of events:_**
 
--   ® User presses ‘Add Note’ button on task card
--   ¬ System opens ‘New Note’ page in GUI
--   ® User enters new task note, clicks “Add Note”
--   ¬ Task tables updated in database
--   ¬ System notifies users assigned to task of new note
+→User presses ‘Add Note’ button on task card
+←System opens ‘New Note’ page in GUI
+→User enters new task note, clicks “Add Note”
+←Task tables updated in database
+←System notifies users assigned to task of new note
 
 ### **Use Case #20: Add user to task**
 
@@ -733,22 +738,22 @@ System notifies users of task update
 
 **_Preconditions:_**
 
--   Task name must already exist in database
--   Added user must be assigned to project containing task
+Task name must already exist in database
+Added user must be assigned to project containing task
 
 **_Postconditions:_**
 
--   Task table should be updated in database
--   New user should be notified that they were added to a task
+Task table should be updated in database
+New user should be notified that they were added to a task
 
 **_Flow of events:_**
 
--   ® User presses ‘Add User’ button on task card
--   ¬ System opens ‘Add user’ page in GUI
--   ® User selects other users to be added
--   ¬ Task tables updated in database
--   ¬ System notifies users of new task assignment
--   ¬ System displays new users on task card in Group Board view of GUI
+→User presses ‘Add User’ button on task card
+←System opens ‘Add user’ page in GUI
+→User selects other users to be added
+←Task tables updated in database
+←System notifies users of new task assignment
+←System displays new users on task card in Group Board view of GUI
 
 ### **Use Case #21: Mark task completed**
 
@@ -762,21 +767,21 @@ System notifies users of task update
 
 **_Preconditions:_**
 
--   Task name must already exist in database
--   User must be admin, or original task creator
+Task name must already exist in database
+User must be admin, or original task creator
 
 **_Postconditions:_**
 
--   Task table values should be updated in database
--   Project table values should be updated in database
--   Group Board of all participating users should be updated
+Task table values should be updated in database
+Project table values should be updated in database
+Group Board of all participating users should be updated
 
 **_Flow of events:_**
 
-- Admin/User presses ‘Close Task’ on task card
-- System opens ‘Close Task’ warning message in GUI window
-- Admin/User confirms
-- Ask tables updated in database
-- Project tables updated in database
-- Closed task moved to ‘Completed Task’ bin in project stack
-- System displays updated project stack in Group Board view of GUI
+→Admin/User presses ‘Close Task’ on task card
+←System opens ‘Close Task’ warning message in GUI window
+→Admin/User confirms
+←Ask tables updated in database
+←Project tables updated in database
+←Closed task moved to ‘Completed Task’ bin in project stack
+←System displays updated project stack in Group Board view of GUI
