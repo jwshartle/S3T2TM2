@@ -484,11 +484,15 @@ public class TMApplication extends javax.swing.JFrame
         if (JOptionPane.showConfirmDialog(this, 
             "Are you sure to logout?", "Logout", 
             JOptionPane.YES_NO_OPTION,
-            JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+            JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION)
+        {
+            //Mark user as offline
+            BusinessLogic bl = new BusinessLogic();
+
+            
+            
             System.exit(0);
         }
-        
-        //Will need to mark user as offline
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
