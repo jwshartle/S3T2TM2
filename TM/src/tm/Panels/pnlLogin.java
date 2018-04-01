@@ -5,6 +5,8 @@
  */
 package tm.Panels;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Papa Bless
@@ -49,11 +51,6 @@ public class pnlLogin extends javax.swing.JFrame {
         });
 
         fldUserName.setText("UserName");
-        fldUserName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fldUserNameActionPerformed(evt);
-            }
-        });
 
         fldPassword.setText("jPasswordField1");
 
@@ -90,16 +87,29 @@ public class pnlLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
+        try{
+            String query ="Select Username,Password from Account where Username= '"+fldUserName.getText()+"'";
+            pst=con.prepareStatement(query);
+        }
+        catch (Exception e){
+            
+        }
+        
+        
+        String name=fldUserName.getText();
+        String pwd=fldPassword.getText();
+        if (pwd.equals(" ")){
+        JOptionPane.showMessageDialog(null, "Incorrect Username or Password combination");
+        dispose();
+        }
+        JOptionPane.showMessageDialog(null, "Username does not exsist");
+        
+        JOptionPane.showMessageDialog(null, "Welcome");
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCreateAccountActionPerformed
-
-    private void fldUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fldUserNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fldUserNameActionPerformed
 
     /**
      * @param args the command line arguments
