@@ -487,11 +487,13 @@ public class TMApplication extends javax.swing.JFrame
             JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION)
         {
             //Mark user as offline
-            BusinessLogic bl = new BusinessLogic();
-
+            //BusinessLogic bl = new BusinessLogic();
+            dispose();
+            tm.Panels.pnlLogin Login =new tm.Panels.pnlLogin();
+            Login.setVisible(true);
             
             
-            System.exit(0);
+            //System.exit(0);
         }
     }//GEN-LAST:event_btnLogoutActionPerformed
 

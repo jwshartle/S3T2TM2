@@ -20,7 +20,7 @@ public class pnlLogin extends javax.swing.JFrame {
      * Creates new form pnlLogin
      */
     public pnlLogin() {
-        con=tm.BusinessLogic.buildConnectionDB();
+       // con=tm.BusinessLogic.buildConnectionDB();
         initComponents();
     }
 
@@ -92,23 +92,24 @@ public class pnlLogin extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         try{
-            String query ="Select Username,Password from Account where Username= '"+fldUserName.getText()+"'";
+            String query ="SELECT Username, Password from Account where Username= '"+fldUserName.getText()+"'";
             pst = con.prepareStatement(query);
         }
         catch (Exception e){
-            
-        }
-        
-        
+            JOptionPane.showMessageDialog(null,e);
+        } 
         String name=fldUserName.getText();
         String pwd=fldPassword.getText();
-        if (pwd.equals(" ")){
-        JOptionPane.showMessageDialog(null, "Incorrect Username or Password combination");
-        dispose();
+        if (name==null){
+            JOptionPane.showMessageDialog(null, "Username does not exsist.");
+        } else if (pwd!=(fldPassword.getText())){
+            JOptionPane.showMessageDialog(null, "Incorrect Password.");
+        }else {
+            JOptionPane.showMessageDialog(null, "Welcome.");
+            dispose();
+            tm.TMApplication App =new tm.TMApplication();
+            App.setVisible(true);
         }
-        JOptionPane.showMessageDialog(null, "Username does not exsist");
-        
-        JOptionPane.showMessageDialog(null, "Welcome");
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
