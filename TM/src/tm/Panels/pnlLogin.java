@@ -20,7 +20,7 @@ public class pnlLogin extends javax.swing.JFrame {
      * Creates new form pnlLogin
      */
     public pnlLogin() {
-        con=tm.BusinessLogic.ConnectorDB();
+        con=tm.BusinessLogic.buildConnectionDB();
         initComponents();
     }
 
