@@ -6,17 +6,21 @@
 package tm.Panels;
 
 import javax.swing.JOptionPane;
+import java.sql.*;
 
 /**
  *
  * @author Papa Bless
  */
 public class pnlLogin extends javax.swing.JFrame {
-
+    Connection con=null;
+    ResultSet rs=null;
+    PreparedStatement pst=null;
     /**
      * Creates new form pnlLogin
      */
     public pnlLogin() {
+        con=tm.BusinessLogic.ConnectorDB();
         initComponents();
     }
 
@@ -89,7 +93,7 @@ public class pnlLogin extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         try{
             String query ="Select Username,Password from Account where Username= '"+fldUserName.getText()+"'";
-            pst=con.prepareStatement(query);
+            pst = con.prepareStatement(query);
         }
         catch (Exception e){
             

@@ -20,8 +20,9 @@ public class BusinessLogic
 {
     //be used to connect to database 
     protected String mConnectionString = "";
+    Connection cin=null;
     
-    public BusinessLogic()
+    public  BusinessLogic()
     {
         //Set ConnectionString
         buildConnectionString();
@@ -50,6 +51,18 @@ public class BusinessLogic
          }
         
         return "";
+    }
+    
+    public static Connection buildConnectionDB(){
+        try{
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Connection con = DriverManager.getConnection("jdbc:sqlserver://ec2-13-58-47-139.us-east-2.compute.amazonaws.com:1433;databaseName=dbinstance;user=group2;password=SacStateGroup$01;");
+            return con;
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+            return null;
+            
+        }
     }
 
 
