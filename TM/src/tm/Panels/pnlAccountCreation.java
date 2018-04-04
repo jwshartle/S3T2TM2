@@ -15,6 +15,7 @@ public class pnlAccountCreation extends javax.swing.JFrame {
      * Creates new form pnlAccountCreation
      */
     public pnlAccountCreation() {
+        setResizable(false);
         initComponents();
     }
 
@@ -122,6 +123,8 @@ public class pnlAccountCreation extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
         tm.Panels.pnlLogin Login =new tm.Panels.pnlLogin();
+        Login.pack();
+        Login.setLocationRelativeTo(null);
         Login.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

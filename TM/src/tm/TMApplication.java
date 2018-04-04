@@ -490,6 +490,8 @@ public class TMApplication extends javax.swing.JFrame
             //BusinessLogic bl = new BusinessLogic();
             dispose();
             tm.Panels.pnlLogin Login =new tm.Panels.pnlLogin();
+            Login.pack();
+            Login.setLocationRelativeTo(null);
             Login.setVisible(true);
             
             

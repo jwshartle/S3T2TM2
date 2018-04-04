@@ -21,6 +21,7 @@ public class pnlLogin extends javax.swing.JFrame {
      */
     public pnlLogin() {
        // con=tm.BusinessLogic.buildConnectionDB();
+        setResizable(false);
         initComponents();
     }
 
@@ -39,6 +40,7 @@ public class pnlLogin extends javax.swing.JFrame {
         fldPassword = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,6 +68,14 @@ public class pnlLogin extends javax.swing.JFrame {
 
         jLabel2.setText("Password");
 
+        jLabel3.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel3.setText("I forgot my password");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -73,16 +83,27 @@ public class pnlLogin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(25, 25, 25)
-                            .addComponent(btnCreateAccount))
-                        .addComponent(fldUserName, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(fldPassword, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addGap(0, 35, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnCreateAccount)
+                                        .addGap(10, 10, 10))))
+                            .addComponent(fldPassword, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fldUserName, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(0, 38, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,7 +116,9 @@ public class pnlLogin extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCreateAccount)
                     .addComponent(btnLogin))
@@ -123,6 +146,8 @@ public class pnlLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Welcome.");
             dispose();
             tm.TMApplication App =new tm.TMApplication();
+            App.pack();
+            App.setLocationRelativeTo(null);
             App.setVisible(true);
         }
     }//GEN-LAST:event_btnLoginActionPerformed
@@ -130,12 +155,22 @@ public class pnlLogin extends javax.swing.JFrame {
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
         dispose();
         tm.Panels.pnlAccountCreation Creation =new tm.Panels.pnlAccountCreation();
+        Creation.pack();
+        Creation.setLocationRelativeTo(null);
         Creation.setVisible(true);
     }//GEN-LAST:event_btnCreateAccountActionPerformed
 
     private void fldUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fldUserNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fldUserNameActionPerformed
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        dispose();
+        tm.Panels.pnlAccountRecovery Recovery =new tm.Panels.pnlAccountRecovery();
+        Recovery.pack();
+        Recovery.setLocationRelativeTo(null);
+        Recovery.setVisible(true);
+    }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -179,5 +214,6 @@ public class pnlLogin extends javax.swing.JFrame {
     private javax.swing.JTextField fldUserName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
