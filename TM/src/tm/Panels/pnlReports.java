@@ -27,26 +27,105 @@ public class pnlReports extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        statusRadioGroup = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        taskNameLabel = new javax.swing.JLabel();
+        descriptionLabel = new javax.swing.JLabel();
+        statusLabel = new javax.swing.JLabel();
+        userLabel = new javax.swing.JLabel();
+        addUserButton = new javax.swing.JButton();
+        editNameButton = new javax.swing.JButton();
+        editDescriptionButton = new javax.swing.JButton();
+        notStartedRadio = new javax.swing.JRadioButton();
+        inProgressRadio = new javax.swing.JRadioButton();
+        finishedRadio = new javax.swing.JRadioButton();
 
         jLabel1.setText("Reports");
+
+        taskNameLabel.setText("Task name:");
+
+        descriptionLabel.setText("Description:");
+
+        statusLabel.setText("Status:");
+
+        userLabel.setText("Users:");
+
+        addUserButton.setText("Add User");
+        addUserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addUserButtonActionPerformed(evt);
+            }
+        });
+
+        editNameButton.setText("Edit");
+
+        editDescriptionButton.setText("Edit");
+
+        statusRadioGroup.add(notStartedRadio);
+        notStartedRadio.setText("not started");
+
+        statusRadioGroup.add(inProgressRadio);
+        inProgressRadio.setText("in progress");
+
+        statusRadioGroup.add(finishedRadio);
+        finishedRadio.setText("finished");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(375, 375, 375)
-                .addComponent(jLabel1)
-                .addContainerGap(435, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(375, 375, 375)
+                                    .addComponent(jLabel1))
+                                .addComponent(addUserButton, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(statusLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(taskNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(descriptionLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                                .addComponent(userLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(editDescriptionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(editNameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(notStartedRadio)
+                        .addGap(55, 55, 55)
+                        .addComponent(inProgressRadio)
+                        .addGap(55, 55, 55)
+                        .addComponent(finishedRadio)))
+                .addContainerGap(408, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(514, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(taskNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editNameButton)
+                .addGap(23, 23, 23)
+                .addComponent(descriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(editDescriptionButton)
+                .addGap(15, 15, 15)
+                .addComponent(statusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(notStartedRadio)
+                    .addComponent(inProgressRadio)
+                    .addComponent(finishedRadio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(userLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(addUserButton)
+                .addContainerGap(158, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -63,9 +142,24 @@ public class pnlReports extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void addUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUserButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addUserButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addUserButton;
+    private javax.swing.JLabel descriptionLabel;
+    private javax.swing.JButton editDescriptionButton;
+    private javax.swing.JButton editNameButton;
+    private javax.swing.JRadioButton finishedRadio;
+    private javax.swing.JRadioButton inProgressRadio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton notStartedRadio;
+    private javax.swing.JLabel statusLabel;
+    private javax.swing.ButtonGroup statusRadioGroup;
+    private javax.swing.JLabel taskNameLabel;
+    private javax.swing.JLabel userLabel;
     // End of variables declaration//GEN-END:variables
 }
