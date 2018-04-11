@@ -5,16 +5,19 @@
  */
 package tm.Panels;
 
+import java.sql.Connection;
+
 /**
  *
  * @author ehaddy
  */
 public class pnlReports extends javax.swing.JPanel {
-
+    Connection con=null;
     /**
      * Creates new form pnlReports
      */
     public pnlReports() {
+        con=tm.BusinessLogic.buildConnectionDB();
         initComponents();
     }
 
