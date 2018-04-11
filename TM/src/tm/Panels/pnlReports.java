@@ -40,6 +40,9 @@ public class pnlReports extends javax.swing.JPanel {
         notStartedRadio = new javax.swing.JRadioButton();
         inProgressRadio = new javax.swing.JRadioButton();
         finishedRadio = new javax.swing.JRadioButton();
+        startTimeLabel = new javax.swing.JLabel();
+        dueDateLabel = new javax.swing.JLabel();
+        leaderLabel = new javax.swing.JLabel();
 
         jLabel1.setText("Reports");
 
@@ -71,6 +74,12 @@ public class pnlReports extends javax.swing.JPanel {
         statusRadioGroup.add(finishedRadio);
         finishedRadio.setText("finished");
 
+        startTimeLabel.setText("Start Time:");
+
+        dueDateLabel.setText("Due Date:");
+
+        leaderLabel.setText("Task Leader:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -91,7 +100,10 @@ public class pnlReports extends javax.swing.JPanel {
                                 .addComponent(descriptionLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
                                 .addComponent(userLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(editDescriptionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(editNameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(editNameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(startTimeLabel)
+                            .addComponent(dueDateLabel)
+                            .addComponent(leaderLabel)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(94, 94, 94)
                         .addComponent(notStartedRadio)
@@ -107,25 +119,31 @@ public class pnlReports extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(taskNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(editNameButton)
-                .addGap(23, 23, 23)
-                .addComponent(descriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(taskNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(editNameButton)
+                .addGap(18, 18, 18)
+                .addComponent(descriptionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(editDescriptionButton)
-                .addGap(15, 15, 15)
-                .addComponent(statusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(statusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(notStartedRadio)
                     .addComponent(inProgressRadio)
                     .addComponent(finishedRadio))
+                .addGap(4, 4, 4)
+                .addComponent(startTimeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(dueDateLabel)
+                .addGap(31, 31, 31)
+                .addComponent(leaderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(userLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(addUserButton)
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addComponent(userLabel)
+                .addGap(62, 62, 62)
+                .addComponent(addUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -150,13 +168,16 @@ public class pnlReports extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addUserButton;
     private javax.swing.JLabel descriptionLabel;
+    private javax.swing.JLabel dueDateLabel;
     private javax.swing.JButton editDescriptionButton;
     private javax.swing.JButton editNameButton;
     private javax.swing.JRadioButton finishedRadio;
     private javax.swing.JRadioButton inProgressRadio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel leaderLabel;
     private javax.swing.JRadioButton notStartedRadio;
+    private javax.swing.JLabel startTimeLabel;
     private javax.swing.JLabel statusLabel;
     private javax.swing.ButtonGroup statusRadioGroup;
     private javax.swing.JLabel taskNameLabel;
