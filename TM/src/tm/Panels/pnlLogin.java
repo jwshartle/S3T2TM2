@@ -135,7 +135,6 @@ public class pnlLogin extends javax.swing.JFrame {
             pst = con.prepareStatement(query);
             rs = pst.executeQuery();
             rs.next();
-            JOptionPane.showMessageDialog(null, "im here");
             if (pwd.equals(rs.getString("Password"))){
                 JOptionPane.showMessageDialog(null, "Welcome.");
                 tm.TMApplication App = new tm.TMApplication();
@@ -147,7 +146,7 @@ public class pnlLogin extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Password Incorrect");
             }  
         } catch (Exception e){
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "Username not found");
         } 
     }//GEN-LAST:event_btnLoginActionPerformed
 
@@ -167,13 +166,22 @@ public class pnlLogin extends javax.swing.JFrame {
         String email = JOptionPane.showInputDialog("Please enter your email.");
         if (email.equals(null)){
         }else{
-            JOptionPane.showMessageDialog(null, "email");
-            String query ="SELECT Email from TUsers where Email='" + email + "'";
-            dispose();
-            tm.Panels.pnlAccountRecovery Recovery =new tm.Panels.pnlAccountRecovery();
-            Recovery.pack();
-            Recovery.setLocationRelativeTo(null);
-            Recovery.setVisible(true);
+            try{
+                String query ="SELECT Email from TUsers where Email='" + email + "'";
+                pst = con.prepareStatement(query);
+                rs = pst.executeQuery();
+                rs.next();
+                if (email.equals(rs.getString("Email"))){
+                    dispose();
+                    tm.Panels.pnlAccountRecovery Recovery = new tm.Panels.pnlAccountRecovery();
+                    Recovery.pack();
+                    Recovery.setLocationRelativeTo(null);
+                    Recovery.setVisible(true);
+                } else{   
+                }
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Email doesn't exist.");
+            }
         }
     }//GEN-LAST:event_jLabel3MouseClicked
 
