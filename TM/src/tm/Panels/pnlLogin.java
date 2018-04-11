@@ -131,9 +131,10 @@ public class pnlLogin extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String pwd=fldPassword.getText();
         try{
-            String query ="SELECT * from TUsers where Username='" + fldUserName.getText() + "'";
+            String query ="SELECT Username,Password from TUsers where Username='" + fldUserName.getText() + "'";
             pst = con.prepareStatement(query);
             rs = pst.executeQuery();
+            rs.next();
             JOptionPane.showMessageDialog(null, "im here");
             if (pwd.equals(rs.getString("Password"))){
                 JOptionPane.showMessageDialog(null, "Welcome.");
