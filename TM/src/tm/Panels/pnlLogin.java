@@ -20,7 +20,7 @@ public class pnlLogin extends javax.swing.JFrame {
      * Creates new form pnlLogin
      */
     public pnlLogin() {
-       // con=tm.BusinessLogic.buildConnectionDB();
+        con=tm.BusinessLogic.buildConnectionDB();
         setResizable(false);
         initComponents();
     }
@@ -129,27 +129,25 @@ public class pnlLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        try{
-            String query ="SELECT Username, Password from Account where Username= '"+fldUserName.getText()+"'";
-            pst = con.prepareStatement(query);
-        }
-        catch (Exception e){
-            JOptionPane.showMessageDialog(null,e);
-        } 
-        String name=fldUserName.getText();
         String pwd=fldPassword.getText();
-        if (name==null){
-            JOptionPane.showMessageDialog(null, "Username does not exsist.");
-        } else if (pwd!=(fldPassword.getText())){
-            JOptionPane.showMessageDialog(null, "Incorrect Password.");
-        }else {
-            JOptionPane.showMessageDialog(null, "Welcome.");
-            dispose();
-            tm.TMApplication App =new tm.TMApplication();
-            App.pack();
-            App.setLocationRelativeTo(null);
-            App.setVisible(true);
-        }
+        try{
+            String query ="SELECT * from TUsers where Username='" + fldUserName.getText() + "'";
+            pst = con.prepareStatement(query);
+            rs=pst.executeQuery();
+            JOptionPane.showMessageDialog(null, "im here");
+            if (pwd.equals(rs.getString("Password"))){
+                JOptionPane.showMessageDialog(null, "Welcome.");
+                tm.TMApplication App = new tm.TMApplication();
+                App.pack();
+                App.setLocationRelativeTo(null);
+                App.setVisible(true);
+                dispose();
+            }else {
+                JOptionPane.showMessageDialog(null, "Password Incorrect");
+            }  
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        } 
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
@@ -165,11 +163,18 @@ public class pnlLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_fldUserNameActionPerformed
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        dispose();
-        tm.Panels.pnlAccountRecovery Recovery =new tm.Panels.pnlAccountRecovery();
-        Recovery.pack();
-        Recovery.setLocationRelativeTo(null);
-        Recovery.setVisible(true);
+        String email = JOptionPane.showInputDialog("Please enter your email.");
+        if (email.equals(null)){
+        }else{
+            JOptionPane.showMessageDialog(null, "email");
+            String query ="SELECT Email from TUsers where Email='" + email + "'";
+            if ()
+            dispose();
+            tm.Panels.pnlAccountRecovery Recovery =new tm.Panels.pnlAccountRecovery();
+            Recovery.pack();
+            Recovery.setLocationRelativeTo(null);
+            Recovery.setVisible(true);
+        }
     }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
