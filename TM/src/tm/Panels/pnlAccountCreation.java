@@ -1,6 +1,7 @@
 package tm.Panels;
 
 import java.sql.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Papa Bless
@@ -114,7 +115,35 @@ public class pnlAccountCreation extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
-        // TODO add your handling code here:
+        String user =jUsernameField1.getText();
+        String email =jEmailField1.getText();
+        String pwd =jPasswordField1.getText();
+        String pwd2 =jPasswordField2.getText();
+        if (user.equals(null) || email.equals(null) || pwd2.equals(null) || pwd2.equals(null)){
+            if (pwd.equals(pwd2)){
+                try{
+                    String query ="SELECT Username from TUsers where Username='" + jUsernameField1.getText() + "'";
+                    pst = con.prepareStatement(query);
+                    rs = pst.executeQuery();
+                    rs.next();
+                    JOptionPane.showMessageDialog(null, "Username Already exists.");
+                }catch(Exception e){
+                    try {
+                        String query ="SELECT Email from TUsers where Email='" + jEmailField1.getText() + "'";
+                        pst = con.prepareStatement(query);
+                        rs = pst.executeQuery();
+                        rs.next();
+                        JOptionPane.showMessageDialog(null, "Email already exists.");
+                    }catch(Exception n){
+                        JOptionPane.showMessageDialog(null, "you did the thing.");
+                    }
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Passwords dont match.");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Fill all fields and try again.");
+        }
     }//GEN-LAST:event_btnCreateAccountActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
