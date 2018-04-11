@@ -119,30 +119,35 @@ public class pnlAccountCreation extends javax.swing.JFrame {
         String email =jEmailField1.getText();
         String pwd =jPasswordField1.getText();
         String pwd2 =jPasswordField2.getText();
-        if (user.equals(null) || email.equals(null) || pwd2.equals(null) || pwd2.equals(null)){
+        if (jUsernameField1.getText().equals("")||jEmailField1.getText().equals("")||jPasswordField1.getText().equals("")||jPasswordField2.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Fill all fields and try again.");
+        }else{
             if (pwd.equals(pwd2)){
                 try{
                     String query ="SELECT Username from TUsers where Username='" + jUsernameField1.getText() + "'";
                     pst = con.prepareStatement(query);
                     rs = pst.executeQuery();
                     rs.next();
-                    JOptionPane.showMessageDialog(null, "Username Already exists.");
+                    JOptionPane.showMessageDialog(null, "here");
+                    if (user.equals(rs.getString("Username"))){
+                        JOptionPane.showMessageDialog(null, "Username already exists.");
+                    }
                 }catch(Exception e){
                     try {
-                        String query ="SELECT Email from TUsers where Email='" + jEmailField1.getText() + "'";
-                        pst = con.prepareStatement(query);
+                        String query2 ="SELECT Email from TUsers where Email='" + jEmailField1.getText() + "'";
+                        pst = con.prepareStatement(query2);
                         rs = pst.executeQuery();
                         rs.next();
-                        JOptionPane.showMessageDialog(null, "Email already exists.");
+                        if(email.equals(rs.getString("Email"))){
+                            JOptionPane.showMessageDialog(null, "Email already exists.");
+                        }
                     }catch(Exception n){
-                        JOptionPane.showMessageDialog(null, "you did the thing.");
+                        JOptionPane.showMessageDialog(null, "You did the thing");
                     }
                 }
             }else{
                 JOptionPane.showMessageDialog(null, "Passwords dont match.");
             }
-        }else{
-            JOptionPane.showMessageDialog(null, "Fill all fields and try again.");
         }
     }//GEN-LAST:event_btnCreateAccountActionPerformed
 
