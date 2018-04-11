@@ -14,7 +14,10 @@ public class pnlAccountRecovery extends javax.swing.JFrame {
      * Creates new form pnlAccountRecovery
      */
     public pnlAccountRecovery() {
+        String rand="";
         setResizable(false);
+        rand=createRandom();
+        sendEmail(rand);
         initComponents();
     }
 
@@ -130,6 +133,15 @@ public class pnlAccountRecovery extends javax.swing.JFrame {
                 new pnlAccountRecovery().setVisible(true);
             }
         });
+    }
+    
+    private String createRandom() {
+        String uuid = UUID.randomUUID().toString();
+        return uuid;
+    }
+    
+    private void sendEmail(String id){
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
