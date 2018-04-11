@@ -133,7 +133,7 @@ public class pnlLogin extends javax.swing.JFrame {
         try{
             String query ="SELECT * from TUsers where Username='" + fldUserName.getText() + "'";
             pst = con.prepareStatement(query);
-            rs=pst.executeQuery();
+            rs = pst.executeQuery();
             JOptionPane.showMessageDialog(null, "im here");
             if (pwd.equals(rs.getString("Password"))){
                 JOptionPane.showMessageDialog(null, "Welcome.");
@@ -168,7 +168,6 @@ public class pnlLogin extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(null, "email");
             String query ="SELECT Email from TUsers where Email='" + email + "'";
-            if ()
             dispose();
             tm.Panels.pnlAccountRecovery Recovery =new tm.Panels.pnlAccountRecovery();
             Recovery.pack();
