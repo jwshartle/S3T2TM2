@@ -67,12 +67,6 @@ public class pnlAccountCreation extends javax.swing.JFrame {
 
         jLabel5.setText("Name");
 
-        jNameField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jNameField1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -159,13 +153,13 @@ public class pnlAccountCreation extends javax.swing.JFrame {
                     }catch(Exception n){
                         JOptionPane.showMessageDialog(null, "You did the thing");
                         try{
-                            String Max= "SELECT MAX UserId FROM TUser";
+                            String Max= "SELECT MAX(UserId) FROM TUsers";
                             pst=con.prepareStatement(Max);
                             rs=pst.executeQuery();
                             rs.next();
                             int id=rs.getInt("UserId");
                             id=id+1;
-                            String Insert = "INSERT INTO TUser(Username, Email, Password) VALUES (?,?,?)";
+                            String Insert = "INSERT INTO TUsers (Username, Email, Password) VALUES (?,?,?)";
                             pst = con.prepareStatement(Insert);
                             pst.setInt(0, id);
                             pst.setString(1, user);
@@ -191,10 +185,6 @@ public class pnlAccountCreation extends javax.swing.JFrame {
         Login.setLocationRelativeTo(null);
         Login.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jNameField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNameField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jNameField1ActionPerformed
 
     /**
      * @param args the command line arguments
