@@ -38,6 +38,8 @@ public class pnlAccountCreation extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jNameField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,26 +65,35 @@ public class pnlAccountCreation extends javax.swing.JFrame {
 
         jLabel4.setText("Re-enter Password");
 
+        jLabel5.setText("Name");
+
+        jNameField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jNameField1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(59, 59, 59)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel5)
                     .addComponent(jLabel4)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButton1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCreateAccount))
-                        .addComponent(jUsernameField1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jEmailField1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
-                        .addComponent(jPasswordField2, javax.swing.GroupLayout.Alignment.LEADING)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCreateAccount))
+                    .addComponent(jUsernameField1)
+                    .addComponent(jEmailField1)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                    .addComponent(jPasswordField2)
+                    .addComponent(jNameField1))
                 .addContainerGap(59, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -92,7 +103,11 @@ public class pnlAccountCreation extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jUsernameField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jNameField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jEmailField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -104,7 +119,7 @@ public class pnlAccountCreation extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCreateAccount)
                     .addComponent(jButton1))
@@ -119,6 +134,7 @@ public class pnlAccountCreation extends javax.swing.JFrame {
         String email =jEmailField1.getText();
         String pwd =jPasswordField1.getText();
         String pwd2 =jPasswordField2.getText();
+        String name = jNameField1.getText();
         if (jUsernameField1.getText().equals("")||jEmailField1.getText().equals("")||jPasswordField1.getText().equals("")||jPasswordField2.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Fill all fields and try again.");
         }else{
@@ -143,10 +159,18 @@ public class pnlAccountCreation extends javax.swing.JFrame {
                     }catch(Exception n){
                         JOptionPane.showMessageDialog(null, "You did the thing");
                         try{
+                            String Max= "SELECT MAX UserId FROM TUser";
+                            pst=con.prepareStatement(Max);
+                            rs=pst.executeQuery();
+                            rs.next();
+                            int id=rs.getInt("UserId");
+                            id=id+1;
                             String Insert = "INSERT INTO TUser(Username, Email, Password) VALUES (?,?,?)";
                             pst = con.prepareStatement(Insert);
+                            pst.setInt(0, id);
                             pst.setString(1, user);
                             pst.setString(2, pwd);
+                            pst.setString(3, name);
                             pst.setString(4, email);
                             pst.executeUpdate();
                         }catch(Exception m){
@@ -167,6 +191,10 @@ public class pnlAccountCreation extends javax.swing.JFrame {
         Login.setLocationRelativeTo(null);
         Login.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jNameField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNameField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jNameField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,6 +239,8 @@ public class pnlAccountCreation extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField jNameField1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JTextField jUsernameField1;

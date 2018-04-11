@@ -132,7 +132,7 @@ public class pnlLogin extends javax.swing.JFrame {
             rs.next();
             if (pwd.equals(rs.getString("Password"))){
                 JOptionPane.showMessageDialog(null, "Welcome.");
-                tm.TMApplication App = new tm.TMApplication();
+                tm.TMApplication App = new tm.TMApplication(fldUserName.getText());
                 App.pack();
                 App.setLocationRelativeTo(null);
                 App.setVisible(true);
