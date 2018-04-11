@@ -28,19 +28,11 @@ public class TMApplication extends javax.swing.JFrame
      */
     public TMApplication() 
     {
-        tm.Panels.pnlLogin Login=new tm.Panels.pnlLogin();
-        Login.pack();
-        Login.setLocationRelativeTo(null);
-        Login.setVisible(true);
         initComponents();
     }
     
     public TMApplication(String inUsername)
     {
-        tm.Panels.pnlLogin Login=new tm.Panels.pnlLogin();
-        Login.pack();
-        Login.setLocationRelativeTo(null);
-        Login.setVisible(true);
         initComponents();
         lblUsername.setText(inUsername);
     }
