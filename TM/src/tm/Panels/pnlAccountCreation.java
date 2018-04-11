@@ -1,6 +1,7 @@
 package tm.Panels;
 
 import java.sql.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Papa Bless
@@ -114,7 +115,49 @@ public class pnlAccountCreation extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
-        // TODO add your handling code here:
+        String user =jUsernameField1.getText();
+        String email =jEmailField1.getText();
+        String pwd =jPasswordField1.getText();
+        String pwd2 =jPasswordField2.getText();
+        if (jUsernameField1.getText().equals("")||jEmailField1.getText().equals("")||jPasswordField1.getText().equals("")||jPasswordField2.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Fill all fields and try again.");
+        }else{
+            if (pwd.equals(pwd2)){
+                try{
+                    String query ="SELECT Username from TUsers where Username='" + jUsernameField1.getText() + "'";
+                    pst = con.prepareStatement(query);
+                    rs = pst.executeQuery();
+                    rs.next();
+                    if (user.equals(rs.getString("Username"))){
+                        JOptionPane.showMessageDialog(null, "Username already exists.");
+                    }
+                }catch(Exception e){
+                    try {
+                        String query2 ="SELECT Email from TUsers where Email='" + jEmailField1.getText() + "'";
+                        pst = con.prepareStatement(query2);
+                        rs = pst.executeQuery();
+                        rs.next();
+                        if(email.equals(rs.getString("Email"))){
+                            JOptionPane.showMessageDialog(null, "Email already exists.");
+                        }
+                    }catch(Exception n){
+                        JOptionPane.showMessageDialog(null, "You did the thing");
+                        try{
+                            String Insert = "INSERT INTO TUser(Username, Email, Password) VALUES (?,?,?)";
+                            pst = con.prepareStatement(Insert);
+                            pst.setString(1, user);
+                            pst.setString(2, pwd);
+                            pst.setString(4, email);
+                            pst.executeUpdate();
+                        }catch(Exception m){
+                            JOptionPane.showMessageDialog(null, m);
+                        }
+                    }
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Passwords dont match.");
+            }
+        }
     }//GEN-LAST:event_btnCreateAccountActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
