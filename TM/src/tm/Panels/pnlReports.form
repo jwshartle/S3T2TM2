@@ -223,11 +223,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Edit"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editNameButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="editDescriptionButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Edit"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editDescriptionButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="notStartedRadio">
           <Properties>
@@ -236,6 +242,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="not started"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="notStartedRadioActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="inProgressRadio">
           <Properties>
@@ -244,6 +253,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="in progress"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inProgressRadioActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="finishedRadio">
           <Properties>
@@ -252,6 +264,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="finished"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="finishedRadioActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="startTimeLabel">
           <Properties>

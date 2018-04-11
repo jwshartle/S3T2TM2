@@ -78,17 +78,42 @@ public class pnlReports extends javax.swing.JPanel {
         });
 
         editNameButton.setText("Edit");
+        editNameButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editNameButtonActionPerformed(evt);
+            }
+        });
 
         editDescriptionButton.setText("Edit");
+        editDescriptionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editDescriptionButtonActionPerformed(evt);
+            }
+        });
 
         statusRadioGroup.add(notStartedRadio);
         notStartedRadio.setText("not started");
+        notStartedRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                notStartedRadioActionPerformed(evt);
+            }
+        });
 
         statusRadioGroup.add(inProgressRadio);
         inProgressRadio.setText("in progress");
+        inProgressRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inProgressRadioActionPerformed(evt);
+            }
+        });
 
         statusRadioGroup.add(finishedRadio);
         finishedRadio.setText("finished");
+        finishedRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                finishedRadioActionPerformed(evt);
+            }
+        });
 
         startTimeLabel.setText("Start Time:");
 
@@ -247,6 +272,26 @@ public class pnlReports extends javax.swing.JPanel {
     private void addUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUserButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addUserButtonActionPerformed
+
+    private void editNameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editNameButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editNameButtonActionPerformed
+
+    private void editDescriptionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editDescriptionButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editDescriptionButtonActionPerformed
+
+    private void notStartedRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notStartedRadioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_notStartedRadioActionPerformed
+
+    private void inProgressRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inProgressRadioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inProgressRadioActionPerformed
+
+    private void finishedRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishedRadioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_finishedRadioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
