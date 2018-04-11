@@ -128,7 +128,6 @@ public class pnlAccountCreation extends javax.swing.JFrame {
                     pst = con.prepareStatement(query);
                     rs = pst.executeQuery();
                     rs.next();
-                    JOptionPane.showMessageDialog(null, "here");
                     if (user.equals(rs.getString("Username"))){
                         JOptionPane.showMessageDialog(null, "Username already exists.");
                     }
@@ -143,6 +142,16 @@ public class pnlAccountCreation extends javax.swing.JFrame {
                         }
                     }catch(Exception n){
                         JOptionPane.showMessageDialog(null, "You did the thing");
+                        try{
+                            String Insert = "INSERT INTO TUser(Username, Email, Password) VALUES (?,?,?)";
+                            pst = con.prepareStatement(Insert);
+                            pst.setString(1, user);
+                            pst.setString(2, pwd);
+                            pst.setString(4, email);
+                            pst.executeUpdate();
+                        }catch(Exception m){
+                            JOptionPane.showMessageDialog(null, m);
+                        }
                     }
                 }
             }else{
