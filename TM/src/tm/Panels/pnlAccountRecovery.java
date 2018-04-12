@@ -3,6 +3,7 @@ import java.util.UUID;
 import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -12,16 +13,16 @@ public class pnlAccountRecovery extends javax.swing.JFrame {
 
     private static String USER_NAME = "db.auto.messenger";
     private static String PASSWORD = "qwerty123!!";
+    private static String RAND;
     
     public pnlAccountRecovery() {
         initComponents();
     }
     
     public pnlAccountRecovery(String email) {
-        String rand="";
         setResizable(false);
-        rand=createRandom();
-        sendEmail(rand, email);
+        RAND=createRandom();
+        sendEmail(RAND, email);
         initComponents();
     }
 
@@ -34,7 +35,7 @@ public class pnlAccountRecovery extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        jCodeField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -64,7 +65,7 @@ public class pnlAccountRecovery extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCodeField1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addContainerGap(110, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
@@ -80,7 +81,7 @@ public class pnlAccountRecovery extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jCodeField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -100,7 +101,16 @@ public class pnlAccountRecovery extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        if (jCodeField1.getText().equals(RAND)){
+            JOptionPane.showMessageDialog(null, "Correct code");
+            dispose();
+            tm.Panels.pnlAccountRecoveryNewPass NewPass = new tm.Panels.pnlAccountRecoveryNewPass();
+            NewPass.pack();
+            NewPass.setLocationRelativeTo(null);
+            NewPass.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "Incorrect code");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -198,7 +208,7 @@ public class pnlAccountRecovery extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JTextField jCodeField1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
