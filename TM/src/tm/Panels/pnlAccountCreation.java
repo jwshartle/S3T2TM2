@@ -129,7 +129,7 @@ public class pnlAccountCreation extends javax.swing.JFrame {
         String pwd =jPasswordField1.getText();
         String pwd2 =jPasswordField2.getText();
         String name = jNameField1.getText();
-        if (jUsernameField1.getText().equals("")||jEmailField1.getText().equals("")||jPasswordField1.getText().equals("")||jPasswordField2.getText().equals("")){
+        if (jUsernameField1.getText().equals("")||jEmailField1.getText().equals("")||jPasswordField1.getText().equals("")||jPasswordField2.getText().equals("")||jNameField1.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Fill all fields and try again.");
         }else{
             if (pwd.equals(pwd2)){
