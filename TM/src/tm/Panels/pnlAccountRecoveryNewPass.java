@@ -17,7 +17,7 @@ public class pnlAccountRecoveryNewPass extends javax.swing.JFrame {
     Connection con=null;
     ResultSet rs=null;
     PreparedStatement pst=null;
-    private static String EMAIL;
+    static String EMAIL;
     
     public pnlAccountRecoveryNewPass() {
         initComponents();
@@ -111,15 +111,16 @@ public class pnlAccountRecoveryNewPass extends javax.swing.JFrame {
                 String update ="UPDATE TUsers SET Password='" + jPasswordField1.getText()+ "WHERE Email='" + EMAIL + "'";
                 pst = con.prepareStatement(update);
                 rs = pst.executeQuery();
+                rs.next();
+                JOptionPane.showMessageDialog(null, "Password Updated");
+                dispose();
+                tm.Panels.pnlLogin Login = new tm.Panels.pnlLogin();
+                Login.pack();
+                Login.setLocationRelativeTo(null);
+                Login.setVisible(true);
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null, e);
             }
-            JOptionPane.showMessageDialog(null, "Password Updated");
-            dispose();
-            tm.Panels.pnlLogin Login = new tm.Panels.pnlLogin();
-            Login.pack();
-            Login.setLocationRelativeTo(null);
-            Login.setVisible(true);
         }else{
             JOptionPane.showMessageDialog(null, "Passwords do not match. Correct it and try again");
         }
