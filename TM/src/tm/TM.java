@@ -5,6 +5,7 @@
  */
 package tm;
 
+import java.sql.ResultSet;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
@@ -22,27 +23,43 @@ public class TM
     {
         // TODO code application logic here
         TM taskManager = new TM();
-        taskManager.run();
+        taskManager.run(1);
     }
     
-    protected void run()
+    protected void run(int inUserID)
     {
+          
        SwingUtilities.invokeLater(new Runnable()
         {
         @Override
             public void run()
             {
-                //pass in username to show on app
-                JFrame frame = new TMApplication("username");
-                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                //frame.getContentPane().add(new TMMain());
-                //test username change on login
-                frame.pack();
-                frame.setVisible(true);
+                try
+                {
+                    String sUsername = "";
+                    BusinessLogic bl = new BusinessLogic();
+                    ResultSet user = bl.getUser(inUserID);
+                    
+                    if (user.next())
+                    {
+                        sUsername = user.getString("Username");
+                    }
+                    //pass in username to show on app
+                    JFrame frame = new TMApplication(sUsername);
+                    frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    //frame.getContentPane().add(new TMMain());
+                    //test username change on login
+                    frame.pack();
+                    frame.setVisible(true);
+                }
+                catch (Exception err)
+                {
+                    
+                }
             }
     });
        
-       
+      
         
     }
     

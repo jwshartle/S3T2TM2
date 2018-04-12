@@ -26,6 +26,8 @@ public class TMApplication extends javax.swing.JFrame
     /**
      * Creates new form TMApplication
      */
+    
+    protected String mUsername = "";
     public TMApplication() 
     {
         initComponents();
@@ -33,8 +35,10 @@ public class TMApplication extends javax.swing.JFrame
     
     public TMApplication(String inUsername)
     {
+        mUsername = inUsername;
         initComponents();
         lblUsername.setText(inUsername);
+        
     }
     
     public void runApplication()
@@ -96,7 +100,7 @@ public class TMApplication extends javax.swing.JFrame
         lblUsername = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
         pnlTopbar = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
+        lblTask = new javax.swing.JLabel();
         pnlMain = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -315,6 +319,7 @@ public class TMApplication extends javax.swing.JFrame
         lblUsername.setForeground(new java.awt.Color(255, 255, 255));
         lblUsername.setText("Username");
 
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setText("Logout");
         btnLogout.setBorder(null);
         btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -333,10 +338,10 @@ public class TMApplication extends javax.swing.JFrame
         pnlHeaderLayout.setHorizontalGroup(
             pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHeaderLayout.createSequentialGroup()
-                .addContainerGap(757, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblUsername)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnLogout)
                 .addContainerGap())
         );
         pnlHeaderLayout.setVerticalGroup(
@@ -350,23 +355,23 @@ public class TMApplication extends javax.swing.JFrame
 
         pnlTopbar.setBackground(new java.awt.Color(0, 153, 204));
 
-        jLabel11.setFont(new java.awt.Font("Lucida Grande", 1, 20)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Dashboard");
+        lblTask.setFont(new java.awt.Font("Lucida Grande", 1, 20)); // NOI18N
+        lblTask.setForeground(new java.awt.Color(255, 255, 255));
+        lblTask.setText("Dashboard");
 
         javax.swing.GroupLayout pnlTopbarLayout = new javax.swing.GroupLayout(pnlTopbar);
         pnlTopbar.setLayout(pnlTopbarLayout);
         pnlTopbarLayout.setHorizontalGroup(
             pnlTopbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTopbarLayout.createSequentialGroup()
-                .addComponent(jLabel11)
+                .addComponent(lblTask)
                 .addGap(0, 525, Short.MAX_VALUE))
         );
         pnlTopbarLayout.setVerticalGroup(
             pnlTopbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTopbarLayout.createSequentialGroup()
                 .addGap(0, 26, Short.MAX_VALUE)
-                .addComponent(jLabel11))
+                .addComponent(lblTask))
         );
 
         pnlMain.setBackground(new java.awt.Color(255, 255, 255));
@@ -374,7 +379,7 @@ public class TMApplication extends javax.swing.JFrame
 
         pnlMain.add(new pnlDashboard(), "dashboardCard");
         pnlMain.add(new pnlCalendar(), "calendarCard");
-        pnlMain.add(new pnlChatbox(), "chatboxCard");
+        pnlMain.add(new pnlChatbox(mUsername), "chatboxCard");
         pnlMain.add(new pnlReports(), "reportsCard");
         pnlMain.add(new pnlProfile(), "profileCard");
 
@@ -424,7 +429,7 @@ public class TMApplication extends javax.swing.JFrame
         resetColor(btnChatbox);
         resetColor(btnReports);
         resetColor(btnProfile);
-        
+        lblTask.setText("Dashboard");
         showPanel("dashboardCard");
     }//GEN-LAST:event_btnDashboardMousePressed
 
@@ -435,7 +440,7 @@ public class TMApplication extends javax.swing.JFrame
         resetColor(btnChatbox);
         resetColor(btnReports);
         resetColor(btnProfile);
-        
+        lblTask.setText("Calendar");
         showPanel("calendarCard");
     }//GEN-LAST:event_btnCalendarMousePressed
 
@@ -446,7 +451,7 @@ public class TMApplication extends javax.swing.JFrame
         resetColor(btnCalendar);
         resetColor(btnReports);
         resetColor(btnProfile);
-        
+        lblTask.setText("Chatbox");
         showPanel("chatboxCard");
     }//GEN-LAST:event_btnChatboxMousePressed
 
@@ -457,7 +462,7 @@ public class TMApplication extends javax.swing.JFrame
         resetColor(btnCalendar);
         resetColor(btnChatbox);
         resetColor(btnProfile);
-        
+        lblTask.setText("Reports");
         showPanel("reportsCard");
     }//GEN-LAST:event_btnReportsMousePressed
 
@@ -468,7 +473,7 @@ public class TMApplication extends javax.swing.JFrame
         resetColor(btnCalendar);
         resetColor(btnChatbox);
         resetColor(btnReports);
-        
+        lblTask.setText("Profile");
         showPanel("profileCard");
     }//GEN-LAST:event_btnProfileMousePressed
 
@@ -486,15 +491,11 @@ public class TMApplication extends javax.swing.JFrame
             JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION)
         {
             //Mark user as offline
-            //BusinessLogic bl = new BusinessLogic();
-            dispose();
-            tm.Panels.pnlLogin Login =new tm.Panels.pnlLogin();
-            Login.pack();
-            Login.setLocationRelativeTo(null);
-            Login.setVisible(true);
+            BusinessLogic bl = new BusinessLogic();
+
             
             
-            //System.exit(0);
+            System.exit(0);
         }
     }//GEN-LAST:event_btnLogoutActionPerformed
 
@@ -543,7 +544,6 @@ public class TMApplication extends javax.swing.JFrame
     private javax.swing.JPanel btnReports;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -552,6 +552,7 @@ public class TMApplication extends javax.swing.JFrame
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lblTask;
     private javax.swing.JLabel lblUsername;
     private javax.swing.JPanel pnlHeader;
     private javax.swing.JPanel pnlLayout;
