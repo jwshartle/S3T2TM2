@@ -41,12 +41,6 @@ public class pnlAccountRecovery extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
         jLabel1.setText("Check your email and enter code below");
 
         jButton1.setText("Cancel");
@@ -57,6 +51,11 @@ public class pnlAccountRecovery extends javax.swing.JFrame {
         });
 
         jButton2.setText("Next");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,10 +91,6 @@ public class pnlAccountRecovery extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
         tm.Panels.pnlLogin Login = new tm.Panels.pnlLogin();
@@ -103,6 +98,10 @@ public class pnlAccountRecovery extends javax.swing.JFrame {
         Login.setLocationRelativeTo(null);
         Login.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,8 +147,8 @@ public class pnlAccountRecovery extends javax.swing.JFrame {
         String from = USER_NAME;
         String pass = PASSWORD;
         String[] to = { email };
-        String subject = "Java send mail example";
-        String body = "Welcome to JavaMail!";
+        String subject = "Password Recovery";
+        String body = "Your code is: " + id;
 
         sendFromGMail(from, pass, to, subject, body);
     }

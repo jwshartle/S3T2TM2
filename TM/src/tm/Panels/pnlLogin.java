@@ -53,12 +53,6 @@ public class pnlLogin extends javax.swing.JFrame {
             }
         });
 
-        fldUserName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fldUserNameActionPerformed(evt);
-            }
-        });
-
         jLabel1.setText("Username");
 
         jLabel2.setText("Password");
@@ -153,10 +147,6 @@ public class pnlLogin extends javax.swing.JFrame {
         Creation.setVisible(true);
     }//GEN-LAST:event_btnCreateAccountActionPerformed
 
-    private void fldUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fldUserNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fldUserNameActionPerformed
-
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         String email = JOptionPane.showInputDialog("Please enter your email.");
         if (email.equals(null)){
@@ -168,7 +158,7 @@ public class pnlLogin extends javax.swing.JFrame {
                 rs.next();
                 if (email.equals(rs.getString("Email"))){
                     dispose();
-                    tm.Panels.pnlAccountRecovery Recovery = new tm.Panels.pnlAccountRecovery();
+                    tm.Panels.pnlAccountRecovery Recovery = new tm.Panels.pnlAccountRecovery(email);
                     Recovery.pack();
                     Recovery.setLocationRelativeTo(null);
                     Recovery.setVisible(true);
