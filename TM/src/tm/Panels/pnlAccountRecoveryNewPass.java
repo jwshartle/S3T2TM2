@@ -5,16 +5,27 @@
  */
 package tm.Panels;
 
+import java.sql.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
  */
 public class pnlAccountRecoveryNewPass extends javax.swing.JFrame {
 
-    /**
-     * Creates new form pnlAccountRecoveryNewPass
-     */
+    Connection con=null;
+    ResultSet rs=null;
+    PreparedStatement pst=null;
+    private static String EMAIL;
+    
     public pnlAccountRecoveryNewPass() {
+        initComponents();
+    }
+    
+    public pnlAccountRecoveryNewPass(String email) {
+        EMAIL=email;
+        con=tm.BusinessLogic.buildConnectionDB();
         initComponents();
     }
 
@@ -37,8 +48,18 @@ public class pnlAccountRecoveryNewPass extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Cancel");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Accept");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Enter New Password");
 
@@ -83,6 +104,34 @@ public class pnlAccountRecoveryNewPass extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if (jPasswordField1.getText().equals(jPasswordField2.getText())){
+            try{
+                String update ="UPDATE TUsers SET Password='" + jPasswordField1.getText()+ "WHERE Email='" + EMAIL + "'";
+                pst = con.prepareStatement(update);
+                rs = pst.executeQuery();
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, e);
+            }
+            JOptionPane.showMessageDialog(null, "Password Updated");
+            dispose();
+            tm.Panels.pnlLogin Login = new tm.Panels.pnlLogin();
+            Login.pack();
+            Login.setLocationRelativeTo(null);
+            Login.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "Passwords do not match. Correct it and try again");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dispose();
+        tm.Panels.pnlLogin Login = new tm.Panels.pnlLogin();
+        Login.pack();
+        Login.setLocationRelativeTo(null);
+        Login.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

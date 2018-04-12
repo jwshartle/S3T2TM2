@@ -14,6 +14,7 @@ public class pnlAccountRecovery extends javax.swing.JFrame {
     private static String USER_NAME = "db.auto.messenger";
     private static String PASSWORD = "qwerty123!!";
     private static String RAND;
+    private static String EMAIL;
     
     public pnlAccountRecovery() {
         initComponents();
@@ -22,6 +23,7 @@ public class pnlAccountRecovery extends javax.swing.JFrame {
     public pnlAccountRecovery(String email) {
         setResizable(false);
         RAND=createRandom();
+        EMAIL=email;
         sendEmail(RAND, email);
         initComponents();
     }
@@ -104,7 +106,7 @@ public class pnlAccountRecovery extends javax.swing.JFrame {
         if (jCodeField1.getText().equals(RAND)){
             JOptionPane.showMessageDialog(null, "Correct code");
             dispose();
-            tm.Panels.pnlAccountRecoveryNewPass NewPass = new tm.Panels.pnlAccountRecoveryNewPass();
+            tm.Panels.pnlAccountRecoveryNewPass NewPass = new tm.Panels.pnlAccountRecoveryNewPass(EMAIL);
             NewPass.pack();
             NewPass.setLocationRelativeTo(null);
             NewPass.setVisible(true);
@@ -159,7 +161,6 @@ public class pnlAccountRecovery extends javax.swing.JFrame {
         String[] to = { email };
         String subject = "Password Recovery";
         String body = "Your code is: " + id;
-
         sendFromGMail(from, pass, to, subject, body);
     }
     
