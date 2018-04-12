@@ -153,20 +153,19 @@ public class pnlAccountCreation extends javax.swing.JFrame {
                     }catch(Exception n){
                         JOptionPane.showMessageDialog(null, "You did the thing");
                         try{
-                            String Max= "SELECT MAX(UserId) FROM TUsers";
-                            pst=con.prepareStatement(Max);
-                            rs=pst.executeQuery();
-                            rs.next();
-                            int id=rs.getInt("UserId");
-                            id=id+1;
-                            String Insert = "INSERT INTO TUsers (Username, Email, Password) VALUES (?,?,?)";
+                            String Insert = "INSERT INTO TUsers (Username, Password, FullName, Email) VALUES (?,?,?,?)";
                             pst = con.prepareStatement(Insert);
-                            pst.setInt(0, id);
                             pst.setString(1, user);
                             pst.setString(2, pwd);
                             pst.setString(3, name);
                             pst.setString(4, email);
                             pst.executeUpdate();
+                            JOptionPane.showMessageDialog(null, "Account Created");
+                            dispose();
+                            tm.Panels.pnlLogin Login =new tm.Panels.pnlLogin();
+                            Login.pack();
+                            Login.setLocationRelativeTo(null);
+                            Login.setVisible(true);
                         }catch(Exception m){
                             JOptionPane.showMessageDialog(null, m);
                         }
