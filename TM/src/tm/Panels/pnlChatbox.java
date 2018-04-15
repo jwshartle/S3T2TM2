@@ -6,10 +6,12 @@
 package tm.Panels;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.LinkedList;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JTextPane;
@@ -33,6 +35,7 @@ public class pnlChatbox extends javax.swing.JPanel
     /**
      * Creates new form pnlChatbox
      */
+    LinkedList<String> tabNames = new LinkedList<String>();
     String mUsername = "";
     Thread threadMB;
     Thread threadUser;
@@ -52,24 +55,49 @@ public class pnlChatbox extends javax.swing.JPanel
     
     protected void runMB()
     {
-
+        /*
         StyledDocument doc = txtDisplayMessage.getStyledDocument();
         GetChatMessageBoard chatMsg = new GetChatMessageBoard(doc, "1");
         threadMB = new Thread(chatMsg);
         threadMB.start(); 
-        
+        */
     }
     protected void runUser(String inUserIDReceived)
     {
-        BusinessLogic bl = new BusinessLogic();
+        /*BusinessLogic bl = new BusinessLogic();
         String sUserID = bl.getUserID(mUsername);
         StyledDocument doc = txtDisplayMessage.getStyledDocument();
         GetChatUserMessage chat = new GetChatUserMessage(doc, sUserID, inUserIDReceived);
         threadUser = new Thread(chat);
         threadUser.start();
         
+        */
         
+    }
+    protected boolean addTab(String inUser)
+    {
+        boolean bAddTab = true;
+        for(String tabName: tabNames)
+        {
+            if (tabName.equals(inUser))
+                bAddTab = false;
+        }
+        return bAddTab;
+    }
+    
+    protected void createTab(String inUser, String inMessage)
+    {
+        if (addTab(inUser) == false)
+            return;
+        tabNames.add(inUser);
         
+        JTextPane txtPane = new JTextPane();
+        txtPane.setEditable(false);
+        txtPane.setMinimumSize(new Dimension(10,10));
+        txtPane.setPreferredSize(new Dimension(250,145));
+        
+        txtPane.setText(inMessage);
+        tabMain.addTab(inUser,txtPane);
     }
     protected void initializeUsers() 
     {
@@ -99,7 +127,7 @@ public class pnlChatbox extends javax.swing.JPanel
     
     protected void sendMessage()
     {
-        try
+       /* try
         {
             String sText = mUsername + ": " + txtMessage.getText() + "\n";
             StyledDocument doc = txtDisplayMessage.getStyledDocument();
@@ -119,6 +147,7 @@ public class pnlChatbox extends javax.swing.JPanel
         { 
             System.out.println(e);
         }
+        */
     }
     
     
@@ -134,7 +163,7 @@ public class pnlChatbox extends javax.swing.JPanel
             sFullName = sUser.substring(nIndex+1);
         }
         
-        txtDisplayMessage.setText("");
+        //txtDisplayMessage.setText("");
         lblChat.setText(sFullName);
         return sUserID;
     }
@@ -142,9 +171,10 @@ public class pnlChatbox extends javax.swing.JPanel
     protected void startPersonalIM(JList inList)
     {
         btnMessageBoard.setVisible(true);
-        threadMB.stop();
+        //threadMB.stop();
         String sUserID = selectUser(inList);  
-        runUser(sUserID);
+        //runUser(sUserID);
+        createTab(sUserID, "");
         
         
     }
@@ -164,14 +194,10 @@ public class pnlChatbox extends javax.swing.JPanel
         btnMessageBoard = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         lblChat = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtDisplayMessage = new javax.swing.JTextPane();
-        txtDisplayMessage.setEditable(false);
-        DefaultCaret caret = (DefaultCaret)txtDisplayMessage.getCaret();
-        caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
         jScrollPane2 = new javax.swing.JScrollPane();
         txtMessage = new javax.swing.JTextPane();
         btnSend = new javax.swing.JButton();
+        tabMain = new javax.swing.JTabbedPane();
 
         pnlLayout.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -182,11 +208,6 @@ public class pnlChatbox extends javax.swing.JPanel
         lstUsers.setForeground(new java.awt.Color(255, 255, 255));
         lstUsers.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         lstUsers.setSelectionBackground(new java.awt.Color(0, 153, 204));
-        lstUsers.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lstUsersMousePressed(evt);
-            }
-        });
         lstUsers.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 lstUsersValueChanged(evt);
@@ -250,10 +271,6 @@ public class pnlChatbox extends javax.swing.JPanel
                 .addGap(17, 17, 17))
         );
 
-        txtDisplayMessage.setSelectedTextColor(new java.awt.Color(51, 255, 255));
-        txtDisplayMessage.setSelectionColor(new java.awt.Color(204, 51, 0));
-        jScrollPane1.setViewportView(txtDisplayMessage);
-
         txtMessage.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtMessageKeyPressed(evt);
@@ -284,13 +301,14 @@ public class pnlChatbox extends javax.swing.JPanel
             pnlLayoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLayoutLayout.createSequentialGroup()
                 .addGroup(pnlLayoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
                     .addGroup(pnlLayoutLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSend, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1))
-                .addGap(0, 0, 0)
+                    .addGroup(pnlLayoutLayout.createSequentialGroup()
+                        .addComponent(tabMain, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addComponent(pnlUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnlLayoutLayout.setVerticalGroup(
@@ -298,12 +316,13 @@ public class pnlChatbox extends javax.swing.JPanel
             .addGroup(pnlLayoutLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
+                .addComponent(tabMain, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addGroup(pnlLayoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
                     .addGroup(pnlLayoutLayout.createSequentialGroup()
                         .addGap(12, 12, 12)
-                        .addComponent(btnSend, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                        .addComponent(btnSend, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
             .addComponent(pnlUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -362,33 +381,25 @@ public class pnlChatbox extends javax.swing.JPanel
         {
             btnMessageBoard.setVisible(false);
             lblChat.setText("Message Board");
-            txtDisplayMessage.setText("");
+            //txtDisplayMessage.setText("");
             runMB();
             lstUsers.setSelectedIndex(0);
         }
         
     }//GEN-LAST:event_btnMessageBoardActionPerformed
-
-    private void lstUsersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstUsersMousePressed
-        // TODO add your handling code here:
-        JList source = (JList)evt.getSource();
-        startPersonalIM(source);
-        
-    }//GEN-LAST:event_lstUsersMousePressed
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMessageBoard;
     private javax.swing.JButton btnSend;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblChat;
     private javax.swing.JList<String> lstUsers;
     private javax.swing.JPanel pnlLayout;
     private javax.swing.JPanel pnlUsers;
-    private javax.swing.JTextPane txtDisplayMessage;
+    private javax.swing.JTabbedPane tabMain;
     private javax.swing.JTextPane txtMessage;
     // End of variables declaration//GEN-END:variables
 }
