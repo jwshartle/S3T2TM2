@@ -911,17 +911,59 @@ Group Board of all participating users should be updated
 ## Algorithms and Data Structures:
 >If your system has any complex algorithms, e.g., statistical inference, you will ned to describe them in detail here. You will also need to describe your data model in detail here. How are you storing your data and why? How do your choices mitigate issues that we faced in our original implementation of TM.
 
+(DESCRIBE DATABASE STRUCTURE)
+Storing the project and task data in an online database allows us the freedom to access our data from anywhere, from any internet connected computer. The use of database tables is a much more effective method for storing project and task related data compared to the log file entry system implemented in the solo versions of TM. Instead of a single log which holds entries for every task, tables allow the data to be compartmentalized. The improves cohesion greatly and allows our software to access data more quickly within specific projects and tasks, reducing database connection time and data transferred. 
+
+
+![Database structure for project data](https://i.imgur.com/lEnrgHp.png)
+*Database Structure for Project Data*
+
 ## User Interface Design and Implementation:
 
-Discription of UI and pictures of implementation
+>Discription of UI and pictures of implementation
+
+Upon clicking a task on the project/task dashboard, a window called report will pop up displaying information about the task such as name, notes, users working on the task, etc. From this window users can also edit information about the task. 
+![Initial design for report window](https://i.imgur.com/zGa6JiE.png)
+Initial design for report window
 
 ## Progress Report and Plan of Work:
->1.  Progress Report
-  >  What use cases have been implemented?  
-    What is already functional, what is currently being tackled?  
->2.  Plan of Work
-    List the projected milestones and dates by which you plan to accomplish them.
->3.  Breakdown of Responsibilities
-  >-   To the best of your ability, List the names of modules and classes that each team member is currently responsible for developing, coding, and testing    
+
+1.  Progress Report\
+-Currently working on project/task dashboard GUI\
+-Working to get all dashboard GUI functionality enabled before connecting to backend
+-Currently working on report GUI
+-Working on getting GUI to display information on task such as name, notes, etc.
+2.  Plan of Work\
+4/18 - 
+Get Report JPanel to display task information
+4/22 - 
+Dashboard JPanel design fully functional\
+Report JPanel edit task name and description buttons functioning 	
+4/26 - 
+Dashboard functional programming completed\
+Report JPanel add user button functioning
+4/29 -
+ Dashboard database connectivity completed\
+ Report panel connected to dashboard
+5/2 - 
+Dashboard modules wrap up\
+5/3 -
+ Dashboard testing\
+ Report testing
+5/5 -
+ Dashboard style integration\
+ Report integrated
+5/6 - 
+Project/Task dashboard completed and tested
+Report completed and tested
+		
+
+4.  Breakdown of Responsibilities\
+ -Gurpreet/Joseph D.- Project class, Task class\
+  -Joseph D. - Project/Task dashboard JPanel in GUI, Project/Task creation + deletion
+  -Gurpreet- Report JPanel in GUI, displaying and editing task information
   >-   Who will coordiante the integration?
  >-   Who will perform the testing of the integrated system?
+
+Emery is already beginning to coordinate the integration of the systems. Everyone will participate in the testing of the integrated system, but oversight of the testing will be done by (insert name/s here).
+ 
