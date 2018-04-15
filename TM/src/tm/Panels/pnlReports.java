@@ -12,13 +12,19 @@ import java.sql.Connection;
  * @author ehaddy
  */
 public class pnlReports extends javax.swing.JPanel {
-    Connection con=null;
+
     /**
      * Creates new form pnlReports
      */
+    String taskName = "";
     public pnlReports() {
-        con=tm.BusinessLogic.buildConnectionDB();
         initComponents();
+    }
+    
+    public pnlReports(String inTaskName) {
+        initComponents();
+        taskName = inTaskName;
+        taskNameField.setText(taskName);
     }
 
     /**
@@ -269,6 +275,7 @@ public class pnlReports extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void addUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUserButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addUserButtonActionPerformed
