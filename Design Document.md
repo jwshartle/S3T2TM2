@@ -925,20 +925,20 @@ Storing the project and task data in an online database allows us the freedom to
 ## Progress Report and Plan of Work:
 
 1.  Progress Report
--Currently working on project/task dashboard GUI
+-Currently working on project/task dashboard GUI\
 -Working to get all dashboard GUI functionality enabled before connecting to backend
 2.  Plan of Work
-4/22 - Dashboard JPanel design fully functional 
-4/26 - Dashboard functional programming completed
-4/29 - Dashboard database connectivity completed
-5/2 - Dashboard modules wrap up
-5/3 - Dashboard testing
-5/5 - Dashboard style integration
+4/22 - Dashboard JPanel design fully functional\
+4/26 - Dashboard functional programming completed\
+4/29 - Dashboard database connectivity completed\
+5/2 - Dashboard modules wrap up\
+5/3 - Dashboard testing\
+5/5 - Dashboard style integration\
 5/6 - Project/Task dashboard completed and tested
 
 3.  Breakdown of Responsibilities
- -Gurpreet/Joseph D.- Project class, Task class
-  -Joseph D. - Project/Task dashboard JPanel in GUI, Project/Task creation + deletion 
+ -Gurpreet/Joseph D.- Project class, Task class\
+  -Joseph D. - Project/Task dashboard JPanel in GUI, Project/Task creation + deletion
   >-   Who will coordiante the integration?
  >-   Who will perform the testing of the integrated system?
 
