@@ -922,23 +922,46 @@ Storing the project and task data in an online database allows us the freedom to
 
 >Discription of UI and pictures of implementation
 
+Upon clicking a task on the project/task dashboard, a window called report will pop up displaying information about the task such as name, notes, users working on the task, etc. From this window users can also edit information about the task. 
+![Initial design for report window](https://i.imgur.com/zGa6JiE.png)
+Initial design for report window
+
 ## Progress Report and Plan of Work:
 
 1.  Progress Report\
 -Currently working on project/task dashboard GUI\
 -Working to get all dashboard GUI functionality enabled before connecting to backend
+-Currently working on report GUI
+-Working on getting GUI to display information on task such as name, notes, etc.
 2.  Plan of Work\
-4/22 - Dashboard JPanel design fully functional\
-4/26 - Dashboard functional programming completed\
-4/29 - Dashboard database connectivity completed\
-5/2 - Dashboard modules wrap up\
-5/3 - Dashboard testing\
-5/5 - Dashboard style integration\
-5/6 - Project/Task dashboard completed and tested
+4/18 - 
+Get Report JPanel to display task information
+4/22 - 
+Dashboard JPanel design fully functional\
+Report JPanel edit task name and description buttons functioning 	
+4/26 - 
+Dashboard functional programming completed\
+Report JPanel add user button functioning
+4/29 -
+ Dashboard database connectivity completed\
+ Report panel connected to dashboard
+5/2 - 
+Dashboard modules wrap up\
+5/3 -
+ Dashboard testing\
+ Report testing
+5/5 -
+ Dashboard style integration\
+ Report integrated
+5/6 - 
+Project/Task dashboard completed and tested
+Report completed and tested
+		
 
-3.  Breakdown of Responsibilities\
+4.  Breakdown of Responsibilities\
  -Gurpreet/Joseph D.- Project class, Task class\
   -Joseph D. - Project/Task dashboard JPanel in GUI, Project/Task creation + deletion
+  -Gurpreet- Report JPanel in GUI, displaying and editing task information
   >-   Who will coordiante the integration?
  >-   Who will perform the testing of the integrated system?
 
