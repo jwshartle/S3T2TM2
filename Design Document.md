@@ -940,6 +940,18 @@ Message Board and User Chat Associations
 ## System Design:
 >Here we are breaking away from analysis and specifying our design. You should probably have a much better idea with respect to your architecture at this point so weave those decisions into this section. You must include class diagrams that reflect your domain model. They do not have to be super fancy, however. You should be learning from your design section. Make sure that you are not just doing busy work here. I do expect to see identified responsibilities, relationships, and attributes found in the previous sections reflected in this section as well as in your code. Your goal here is not to replicate your implementation, but to provide a document from which somebody else could implement the system that you have designed. Constantly ask yourself whether you are meeting that goal while you are writing.
 
+![RecoveryDomain](https://puu.sh/A43gF/e02dcff924.png)
+
+*Login System Sequence*
+
+![RecoveryDomain](https://puu.sh/A43gn/eb2e73cc35.png)
+
+*Account Creation system sequence*
+
+![RecoveryDomain](https://puu.sh/A43g2/064e3bd157.png)
+
+*Account recovery System sequence*
+
 ![enter image description here](https://i.imgur.com/Ttcwp5r.png)
 
 
@@ -1030,6 +1042,7 @@ Report completed and tested
  -Gurpreet/Joseph D.- Project class, Task class\
   -Joseph D. - Project/Task dashboard JPanel in GUI, Project/Task creation + deletion
   -Gurpreet- Report JPanel in GUI, displaying and editing task information
+  -Joseph N. - Login, Account Creation, Account Recovery, Profile/Edit Profile
   >-   Who will coordiante the integration?
  >-   Who will perform the testing of the integrated system?
 
