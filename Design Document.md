@@ -964,6 +964,21 @@ When the user logins to the applicaiton this will be the dashboard they see fist
 
 
 Upon clicking a task on the project/task dashboard, a window called report will pop up displaying information about the task such as name, notes, users working on the task, etc. From this window users can also edit information about the task. 
+![Initial design for report window](https://puu.sh/A3qBq/0ae855addd.png)
+Initial design for login window
+
+![Initial design for report window](https://puu.sh/A3qBN/58664319ec.png)
+Initial design for account creation window
+
+![Initial design for report window](https://puu.sh/A3qCr/c66b7ed122.png)
+Initial design for account recovery window (pt1)
+
+![Initial design for report window](https://puu.sh/A3qGj/54efaa5a4b.png)
+Initial design for account recovery window (pt2)
+
+![Initial design for report window](https://puu.sh/A3qEr/05bc28a988.png)
+Initial design for account recovery window (pt3)
+
 ![Initial design for report window](https://i.imgur.com/zGa6JiE.png)
 Initial design for report window
 
