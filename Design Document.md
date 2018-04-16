@@ -904,17 +904,44 @@ Group Board of all participating users should be updated
 
 ## Domain Model:
 >This section should included your detailed list of responsibilities, associations, and attributes as described in the slides on domain analysis. It must also include a fully detailed domain model. This should flow naturally from your existing work on use cases and research on existing products. Include as many diagrams as are necessary to convey your model. I'm more concerned that you have fully fleshed out the responsibilities and their relationships than you have pretty pictures.
->![LoginDomain](https://puu.sh/A3ZKZ/158db16d1e.png)
+
+
+>![_LoginDomain_](https://puu.sh/A3ZKZ/158db16d1e.png)
+
 *Login Domain Structure*
 
+  
+
 ![CreationDomain](https://puu.sh/A40Ef/d21eb44551.png)
-*Account Creation Domain Structure*
+
+*_Account Creation Domain Structure_*
+
+  
 
 ![RecoveryDomain](https://puu.sh/A40Cr/21d6942427.png)
-*Account Recovery Domain Structure*
+
+*_Account Recovery Domain Structure_*
+
+
+Message Board and User Chat Domain Structure
+![enter image description here](https://i.imgur.com/CPJP9rc.png)
+
+Message Board and User Chat Responsibilities
+![enter image description here](https://i.imgur.com/9AoFong.png)
+
+Message Board and User Chat Attributes
+![enter image description here](https://i.imgur.com/Rz8IdOs.png)
+
+Message Board and User Chat Associations
+![enter image description here](https://i.imgur.com/sGiuhXP.png)
+
+
 
 ## System Design:
 >Here we are breaking away from analysis and specifying our design. You should probably have a much better idea with respect to your architecture at this point so weave those decisions into this section. You must include class diagrams that reflect your domain model. They do not have to be super fancy, however. You should be learning from your design section. Make sure that you are not just doing busy work here. I do expect to see identified responsibilities, relationships, and attributes found in the previous sections reflected in this section as well as in your code. Your goal here is not to replicate your implementation, but to provide a document from which somebody else could implement the system that you have designed. Constantly ask yourself whether you are meeting that goal while you are writing.
+
+![enter image description here](https://i.imgur.com/Ttcwp5r.png)
+
 
 ## Algorithms and Data Structures:
 >If your system has any complex algorithms, e.g., statistical inference, you will ned to describe them in detail here. You will also need to describe your data model in detail here. How are you storing your data and why? How do your choices mitigate issues that we faced in our original implementation of TM.
@@ -926,13 +953,25 @@ Storing the project and task data in an online database allows us the freedom to
 ![Database structure for project data](https://i.imgur.com/lEnrgHp.png)
 *Database Structure for Project Data*
 
+For the “Chatboard” function we have 4 tables in the database. There are two for the Message Board and two for the User Chat. For the Message Board tables one table holds all of the past messages for the message board. The second table acts like a queue, it holds messages temporarily. When a message is sent it gets stored in the queue table. Once that message gets read then it moves the message from the queue table to the table that stores the history. That User Chat tables use the same format. It has a table to store past conversations and another table acting as a queue for unread messages.
+
 ## User Interface Design and Implementation:
 
 >Discription of UI and pictures of implementation
 
+When the user logins to the applicaiton this will be the dashboard they see fist. The UI is user friendly and not to complex to use. There are buttons on the side that show the different functions our application can do. When a different function is selected that functions panel gets displayed. With this design, a new panel gets displayed in the inner panel. In this example this blue surrounding panels stay the same throughout the entire program, no matter what function is showing. The gray panel inside is what changes when a button is pushed. This gives the program a nice, simple function of use.
+![enter image description here](https://i.imgur.com/m4x42TR.png)
+
+
 Upon clicking a task on the project/task dashboard, a window called report will pop up displaying information about the task such as name, notes, users working on the task, etc. From this window users can also edit information about the task. 
 ![Initial design for report window](https://i.imgur.com/zGa6JiE.png)
 Initial design for report window
+
+
+When the user selects Chatbox this is the UI that gets displayed. A list of users is loaded on the right hand side. When a user gets selected a new tab is opened for that conversation. If a tab already exist then that tab is selected and a new tab is not created.
+![enter image description here](https://i.imgur.com/RoXTgcd.png)
+
+
 
 ## Progress Report and Plan of Work:
 
@@ -941,37 +980,44 @@ Initial design for report window
 -Working to get all dashboard GUI functionality enabled before connecting to backend
 -Currently working on report GUI
 -Working on getting GUI to display information on task such as name, notes, etc.
+-When a user is selected in Chatbox a new tab opens. If a tab is already opened, then that tab comes to focus.
+-Chat can send messages and post to database
+-Database is complete for Chatbox.
 2.  Plan of Work\
-4/18 - \
-Get Report JPanel to display task information\
-4/22 - \
+4/18 - 
+Get Report JPanel to display task information
+4/22 - 
 Dashboard JPanel design fully functional\
-Report JPanel edit task name and description buttons functioning\
-4/26 - \
+Report JPanel edit task name and description buttons functioning 	
+Get Chat to receive messages from database
+4/26 - 
 Dashboard functional programming completed\
-Report JPanel add user button functioning\
-4/29 -\
+Report JPanel add user button functioning
+4/29 -
  Dashboard database connectivity completed\
- Report panel connected to dashboard\
-5/2 - \
+ Report panel connected to dashboard
+ Get message board to receive messages
+5/2 - 
 Dashboard modules wrap up\
-5/3 -\
+Testing complete messaging across multiple applications
+5/3 -
  Dashboard testing\
- Report testing\
-5/5 -\
+ Report testing
+5/5 -
  Dashboard style integration\
- Report integrated\
-5/6 - \
-Project/Task dashboard completed and tested\
-Report completed and tested\
-		
+ Report integrated
+5/6 - 
+Project/Task dashboard completed and tested
+Report completed and tested
+
 
 4.  Breakdown of Responsibilities\
  -Gurpreet/Joseph D.- Project class, Task class\
-  -Joseph D. - Project/Task dashboard JPanel in GUI, Project/Task creation + deletion\
-  -Gurpreet - Report JPanel in GUI, displaying and editing task information\
-  -Joseph N. - Login, Account Creation, Account Recovery, Profile/Edit Profile
+  -Joseph D. - Project/Task dashboard JPanel in GUI, Project/Task creation + deletion
+  -Gurpreet- Report JPanel in GUI, displaying and editing task information
   >-   Who will coordiante the integration?
  >-   Who will perform the testing of the integrated system?
 
-Emery is already beginning to coordinate the integration of the systems. Everyone will participate in the testing of the integrated system, but oversight of the testing will be done by (insert name/s here).
+-Emery : Project Chatbox in the GUI. Make sure database is setup correctly and works. Integrate the systems. 
+Emery is already beginning to coordinate the integration of the systems. Everyone will participate in the testing of the integrated system, but oversight of the testing will be done by Emery.
+ 
