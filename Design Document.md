@@ -904,6 +904,14 @@ Group Board of all participating users should be updated
 
 ## Domain Model:
 >This section should included your detailed list of responsibilities, associations, and attributes as described in the slides on domain analysis. It must also include a fully detailed domain model. This should flow naturally from your existing work on use cases and research on existing products. Include as many diagrams as are necessary to convey your model. I'm more concerned that you have fully fleshed out the responsibilities and their relationships than you have pretty pictures.
+>![LoginDomain](https://puu.sh/A3ZKZ/158db16d1e.png)
+*Login Domain Structure*
+
+![CreationDomain](https://puu.sh/A40Ef/d21eb44551.png)
+*Account Creation Domain Structure*
+
+![RecoveryDomain](https://puu.sh/A40Cr/21d6942427.png)
+*Account Recovery Domain Structure*
 
 ## System Design:
 >Here we are breaking away from analysis and specifying our design. You should probably have a much better idea with respect to your architecture at this point so weave those decisions into this section. You must include class diagrams that reflect your domain model. They do not have to be super fancy, however. You should be learning from your design section. Make sure that you are not just doing busy work here. I do expect to see identified responsibilities, relationships, and attributes found in the previous sections reflected in this section as well as in your code. Your goal here is not to replicate your implementation, but to provide a document from which somebody else could implement the system that you have designed. Constantly ask yourself whether you are meeting that goal while you are writing.
@@ -934,36 +942,36 @@ Initial design for report window
 -Currently working on report GUI
 -Working on getting GUI to display information on task such as name, notes, etc.
 2.  Plan of Work\
-4/18 - 
-Get Report JPanel to display task information
-4/22 - 
+4/18 - \
+Get Report JPanel to display task information\
+4/22 - \
 Dashboard JPanel design fully functional\
-Report JPanel edit task name and description buttons functioning 	
-4/26 - 
+Report JPanel edit task name and description buttons functioning\
+4/26 - \
 Dashboard functional programming completed\
-Report JPanel add user button functioning
-4/29 -
+Report JPanel add user button functioning\
+4/29 -\
  Dashboard database connectivity completed\
- Report panel connected to dashboard
-5/2 - 
+ Report panel connected to dashboard\
+5/2 - \
 Dashboard modules wrap up\
-5/3 -
+5/3 -\
  Dashboard testing\
- Report testing
-5/5 -
+ Report testing\
+5/5 -\
  Dashboard style integration\
- Report integrated
-5/6 - 
-Project/Task dashboard completed and tested
-Report completed and tested
+ Report integrated\
+5/6 - \
+Project/Task dashboard completed and tested\
+Report completed and tested\
 		
 
 4.  Breakdown of Responsibilities\
  -Gurpreet/Joseph D.- Project class, Task class\
-  -Joseph D. - Project/Task dashboard JPanel in GUI, Project/Task creation + deletion
-  -Gurpreet- Report JPanel in GUI, displaying and editing task information
+  -Joseph D. - Project/Task dashboard JPanel in GUI, Project/Task creation + deletion\
+  -Gurpreet - Report JPanel in GUI, displaying and editing task information\
+  -Joseph N. - Login, Account Creation, Account Recovery, Profile/Edit Profile
   >-   Who will coordiante the integration?
  >-   Who will perform the testing of the integrated system?
 
 Emery is already beginning to coordinate the integration of the systems. Everyone will participate in the testing of the integrated system, but oversight of the testing will be done by (insert name/s here).
- 
